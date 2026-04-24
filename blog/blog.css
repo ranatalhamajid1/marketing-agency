@@ -256,6 +256,34 @@ article strong { color: var(--tx); }
   font-size: 0.9rem;
 }
 
+/* ── Blog Images ── */
+.blog-img {
+  margin: 48px 0;
+  border-radius: var(--r2);
+  overflow: hidden;
+  border: 1px solid var(--brd);
+  background: var(--bg2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.blog-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.blog-img:hover img {
+  transform: scale(1.02);
+}
+.blog-img figcaption {
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--tx2);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid var(--brd);
+}
+
 /* ── Tables ── */
 .price-table {
   border: 1px solid var(--brd); border-radius: var(--r); overflow: hidden; margin: 40px 0;
