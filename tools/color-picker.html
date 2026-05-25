@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color Picker — Get HEX, RGB & HSL Color Values | NexaGrowth</title>
+<meta name="description" content="Pick any color and instantly get HEX, RGB, and HSL values. View complementary colors, copy values, and track your color history. Free online color picker.">
+<link rel="canonical" href="https://nexagrowth.xyz/tools/color-picker.html">
+<meta property="og:title" content="Color Picker — Get HEX, RGB & HSL Values | NexaGrowth">
+<meta property="og:description" content="Pick any color and instantly get HEX, RGB, and HSL values with complementary color display.">
+<meta property="og:url" content="https://nexagrowth.xyz/tools/color-picker.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nexagrowth.xyz/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Color Picker — NexaGrowth">
+<meta name="twitter:description" content="Pick colors and get HEX, RGB, and HSL values instantly.">
+<link rel="icon" href="../logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tools.css">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Color Picker",
+  "url":"https://nexagrowth.xyz/tools/color-picker.html",
+  "applicationCategory":"DesignApplication",
+  "operatingSystem":"All",
+  "description":"Pick any color and get HEX, RGB, and HSL values with complementary color display.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"NexaGrowth","url":"https://nexagrowth.xyz"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is the difference between HEX, RGB, and HSL?","acceptedAnswer":{"@type":"Answer","text":"HEX uses a 6-digit hexadecimal code (e.g., #8b5cf6). RGB defines color as Red, Green, Blue values (0-255). HSL uses Hue (0-360°), Saturation (0-100%), and Lightness (0-100%)."}},
+    {"@type":"Question","name":"What is a complementary color?","acceptedAnswer":{"@type":"Answer","text":"A complementary color is the color directly opposite on the color wheel (180° shift in hue). Complementary pairs create high contrast and visual interest."}},
+    {"@type":"Question","name":"How do I copy a color value?","acceptedAnswer":{"@type":"Answer","text":"Simply click on any color value card (HEX, RGB, or HSL) to instantly copy it to your clipboard."}},
+    {"@type":"Question","name":"Can I input a specific HEX code?","acceptedAnswer":{"@type":"Answer","text":"Yes! Type or paste a HEX code into the hex input field and press Enter, or use the visual color picker to browse colors."}}
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+
+<style>
+.cp-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative;z-index:1}
+@media(max-width:700px){.cp-layout{grid-template-columns:1fr}}
+.cp-left,.cp-right{display:flex;flex-direction:column;gap:16px}
+.cp-picker-wrap{position:relative;width:100%}
+.cp-native{width:100%;height:200px;border:none;border-radius:var(--r);cursor:pointer;padding:0;background:transparent}
+.cp-native::-webkit-color-swatch-wrapper{padding:0}
+.cp-native::-webkit-color-swatch{border:2px solid var(--brd);border-radius:var(--r)}
+.cp-native::-moz-color-swatch{border:2px solid var(--brd);border-radius:var(--r)}
+.cp-hex-input{display:flex;gap:10px;align-items:center}
+.cp-hex-input input{flex:1;font-family:'Courier New',monospace;font-size:1rem;font-weight:700;text-transform:uppercase}
+.cp-section-label{font-size:.78rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.cp-comp-wrap{display:flex;gap:12px;align-items:stretch}
+.cp-comp-swatch{width:80px;border-radius:var(--r);border:2px solid var(--brd);flex-shrink:0}
+.cp-comp-vals{flex:1;display:flex;flex-direction:column;gap:6px}
+.cp-comp-val{background:var(--bg2);border:1px solid var(--brd);border-radius:8px;padding:8px 12px;cursor:pointer;transition:.25s;font-size:.82rem}
+.cp-comp-val:hover{border-color:var(--brd2)}
+.cp-comp-val small{display:block;color:var(--tx3);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.cp-comp-val code{color:var(--tx);font-weight:600}
+.cp-history{margin-top:16px}
+.cp-history-grid{display:flex;gap:8px;flex-wrap:wrap}
+.cp-history-swatch{width:36px;height:36px;border-radius:8px;border:2px solid var(--brd);cursor:pointer;transition:.25s}
+.cp-history-swatch:hover{border-color:var(--brd2);transform:scale(1.15)}
+.cp-no-history{font-size:.82rem;color:var(--tx3);font-style:italic}
+</style>
+</head>
+<body class="tool-page">
+
+<!-- Navbar -->
+<nav class="tool-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+      <span class="nav-brand">Nexa<em>Growth</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="index.html">Tools</a>
+  <a href="../blog/index.html">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<main class="tool-main">
+<div class="container">
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="index.html">Tools</a><span class="sep">›</span>
+    <span class="current">Color Picker</span>
+  </nav>
+
+  <!-- Hero -->
+  <div class="tool-hero">
+    <div class="tool-icon">🎨</div>
+    <h1>Color <em>Picker</em></h1>
+    <p>Pick any color and instantly get HEX, RGB, and HSL values. View complementary colors, copy values with a click, and keep a history of your picks.</p>
+  </div>
+
+  <!-- Tool Card -->
+  <div class="tool-card">
+    <div class="cp-layout">
+      <!-- Left: Picker -->
+      <div class="cp-left">
+        <div>
+          <div class="cp-section-label">Pick a Color</div>
+          <div class="cp-picker-wrap">
+            <input type="color" id="color-picker" class="cp-native" value="#8b5cf6">
+          </div>
+        </div>
+        <div class="cp-hex-input">
+          <input type="text" class="tool-input" id="hex-input" value="#8b5cf6" placeholder="#8b5cf6" maxlength="7">
+          <button class="btn-secondary btn-sm" onclick="applyHexInput()">Apply</button>
+        </div>
+        <div class="color-preview" id="color-preview" style="background:#8b5cf6"></div>
+        <div class="color-values">
+          <div class="color-value" onclick="copyVal('hex')" title="Click to copy">
+            <small>HEX</small>
+            <code id="val-hex">#8b5cf6</code>
+          </div>
+          <div class="color-value" onclick="copyVal('rgb')" title="Click to copy">
+            <small>RGB</small>
+            <code id="val-rgb">rgb(139, 92, 246)</code>
+          </div>
+          <div class="color-value" onclick="copyVal('hsl')" title="Click to copy">
+            <small>HSL</small>
+            <code id="val-hsl">hsl(258, 90%, 66%)</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Complementary + History -->
+      <div class="cp-right">
+        <div>
+          <div class="cp-section-label">Complementary Color</div>
+          <div class="cp-comp-wrap">
+            <div class="cp-comp-swatch" id="comp-swatch" style="background:#74a309"></div>
+            <div class="cp-comp-vals">
+              <div class="cp-comp-val" onclick="copyVal('comp-hex')" title="Click to copy">
+                <small>HEX</small>
+                <code id="val-comp-hex">#74a309</code>
+              </div>
+              <div class="cp-comp-val" onclick="copyVal('comp-rgb')" title="Click to copy">
+                <small>RGB</small>
+                <code id="val-comp-rgb">rgb(116, 163, 9)</code>
+              </div>
+              <div class="cp-comp-val" onclick="copyVal('comp-hsl')" title="Click to copy">
+                <small>HSL</small>
+                <code id="val-comp-hsl">hsl(78, 90%, 34%)</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cp-history">
+          <div class="cp-section-label">Recently Picked Colors</div>
+          <div class="cp-history-grid" id="history-grid">
+            <span class="cp-no-history" id="no-history">Pick a color to start building your history</span>
+          </div>
+        </div>
+
+        <div class="tool-actions" style="margin-top:auto">
+          <button class="btn-secondary" onclick="clearHistory()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Clear History
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Use -->
+  <section class="tool-section">
+    <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+    <p>Getting the perfect color value is quick and easy:</p>
+    <ul>
+      <li>Click the <strong>color picker</strong> to browse and select any color visually.</li>
+      <li>Or type a <strong>HEX code</strong> directly into the input field and click "Apply".</li>
+      <li>The tool instantly displays the color in <strong>HEX, RGB, and HSL</strong> formats.</li>
+      <li>Click any <strong>color value card</strong> to copy it to your clipboard.</li>
+      <li>View the <strong>complementary color</strong> — the opposite on the color wheel — for design pairing ideas.</li>
+      <li>Your <strong>color history</strong> is saved so you can revisit recently picked colors.</li>
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tool-section">
+    <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          What is the difference between HEX, RGB, and HSL?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">HEX uses a 6-digit hexadecimal code (e.g., #8b5cf6). RGB defines color as Red, Green, Blue values from 0-255. HSL uses Hue (0-360°), Saturation (0-100%), and Lightness (0-100%). All three represent the same color — just in different formats for different use cases.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          What is a complementary color?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">A complementary color is the color directly opposite on the color wheel — a 180° shift in hue. These color pairs create maximum contrast and visual interest, making them ideal for call-to-action buttons, highlights, and accent elements.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          How do I copy a color value?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Simply click on any color value card (HEX, RGB, or HSL) to instantly copy it to your clipboard. A toast notification will confirm the copy was successful.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Can I input a specific HEX code?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! Type or paste a HEX code (e.g., #ff6600) into the hex input field and click "Apply" or press Enter. The picker and all values will update to match your input.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="tool-section">
+    <h2><span class="section-icon">🧰</span> Related Tools</h2>
+    <div class="related-grid">
+      <a href="css-gradient-generator.html" class="related-card">
+        <span class="rc-icon">🌈</span>
+        <h3>CSS Gradient Generator</h3>
+        <p>Create beautiful CSS gradients with a live visual editor.</p>
+        <span class="rc-arrow">Try it →</span>
+      </a>
+      <a href="password-generator.html" class="related-card">
+        <span class="rc-icon">🔐</span>
+        <h3>Password Generator</h3>
+        <p>Generate strong, secure passwords with custom options.</p>
+        <span class="rc-arrow">Try it →</span>
+      </a>
+      <a href="qr-code-generator.html" class="related-card">
+        <span class="rc-icon">📱</span>
+        <h3>QR Code Generator</h3>
+        <p>Generate QR codes from any text or URL instantly.</p>
+        <span class="rc-arrow">Try it →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <div class="cta-box">
+    <h3>Love Our Free Tools?</h3>
+    <p>Explore the full collection of NexaGrowth tools — from SEO analyzers to design utilities, all free and built for speed.</p>
+    <div class="cta-actions">
+      <a href="index.html" class="btn-primary">Browse All Tools</a>
+      <a href="../blog/index.html" class="btn-secondary">Read Our Blog</a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="tool-footer">
+  <div class="container">
+    <p>&copy; 2025 NexaGrowth. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="tools.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  const picker     = document.getElementById('color-picker');
+  const hexInput   = document.getElementById('hex-input');
+  const preview    = document.getElementById('color-preview');
+  const compSwatch = document.getElementById('comp-swatch');
+  const historyGrid = document.getElementById('history-grid');
+  const noHistory  = document.getElementById('no-history');
+
+  let colorHistory = JSON.parse(localStorage.getItem('ng-color-history') || '[]');
+
+  // ── Color Conversion Helpers ──
+  function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1,3), 16);
+    const g = parseInt(hex.slice(3,5), 16);
+    const b = parseInt(hex.slice(5,7), 16);
+    return { r, g, b };
+  }
+
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r,g,b), min = Math.min(r,g,b);
+    let h, s, l = (max + min) / 2;
+    if (max === min) {
+      h = s = 0;
+    } else {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+        case g: h = ((b - r) / d + 2) / 6; break;
+        case b: h = ((r - g) / d + 4) / 6; break;
+      }
+    }
+    return {
+      h: Math.round(h * 360),
+      s: Math.round(s * 100),
+      l: Math.round(l * 100)
+    };
+  }
+
+  function hslToHex(h, s, l) {
+    s /= 100; l /= 100;
+    const a = s * Math.min(l, 1 - l);
+    const f = n => {
+      const k = (n + h / 30) % 12;
+      const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+      return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return '#' + f(0) + f(8) + f(4);
+  }
+
+  function getComplementary(hex) {
+    const { r, g, b } = hexToRgb(hex);
+    const hsl = rgbToHsl(r, g, b);
+    const compH = (hsl.h + 180) % 360;
+    return hslToHex(compH, hsl.s, hsl.l);
+  }
+
+  // ── Update UI ──
+  function updateColor(hex) {
+    hex = hex.toLowerCase();
+    const { r, g, b } = hexToRgb(hex);
+    const hsl = rgbToHsl(r, g, b);
+    const comp = getComplementary(hex);
+    const compRgb = hexToRgb(comp);
+    const compHsl = rgbToHsl(compRgb.r, compRgb.g, compRgb.b);
+
+    // Main color
+    picker.value = hex;
+    hexInput.value = hex;
+    preview.style.background = hex;
+    document.getElementById('val-hex').textContent = hex;
+    document.getElementById('val-rgb').textContent = `rgb(${r}, ${g}, ${b})`;
+    document.getElementById('val-hsl').textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+    // Complementary
+    compSwatch.style.background = comp;
+    document.getElementById('val-comp-hex').textContent = comp;
+    document.getElementById('val-comp-rgb').textContent = `rgb(${compRgb.r}, ${compRgb.g}, ${compRgb.b})`;
+    document.getElementById('val-comp-hsl').textContent = `hsl(${compHsl.h}, ${compHsl.s}%, ${compHsl.l}%)`;
+
+    // Add to history
+    addToHistory(hex);
+  }
+
+  function addToHistory(hex) {
+    colorHistory = colorHistory.filter(c => c !== hex);
+    colorHistory.unshift(hex);
+    if (colorHistory.length > 20) colorHistory.pop();
+    localStorage.setItem('ng-color-history', JSON.stringify(colorHistory));
+    renderHistory();
+  }
+
+  function renderHistory() {
+    if (colorHistory.length === 0) {
+      historyGrid.innerHTML = '<span class="cp-no-history" id="no-history">Pick a color to start building your history</span>';
+      return;
+    }
+    historyGrid.innerHTML = colorHistory.map(c =>
+      `<div class="cp-history-swatch" style="background:${c}" title="${c}" onclick="selectFromHistory('${c}')"></div>`
+    ).join('');
+  }
+
+  // ── Event Handlers ──
+  picker.addEventListener('input', () => updateColor(picker.value));
+
+  hexInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') applyHexInput();
+  });
+
+  window.applyHexInput = function() {
+    let val = hexInput.value.trim();
+    if (!val.startsWith('#')) val = '#' + val;
+    if (/^#[0-9a-fA-F]{6}$/.test(val)) {
+      updateColor(val);
+    } else if (/^#[0-9a-fA-F]{3}$/.test(val)) {
+      // Expand shorthand
+      val = '#' + val[1]+val[1] + val[2]+val[2] + val[3]+val[3];
+      updateColor(val);
+    } else {
+      showToast('Please enter a valid HEX color (e.g., #ff6600)');
+    }
+  };
+
+  window.selectFromHistory = function(hex) {
+    updateColor(hex);
+  };
+
+  window.copyVal = function(type) {
+    const el = document.getElementById('val-' + type);
+    if (el) copyToClipboard(el.textContent);
+  };
+
+  window.clearHistory = function() {
+    colorHistory = [];
+    localStorage.removeItem('ng-color-history');
+    renderHistory();
+    showToast('Color history cleared');
+  };
+
+  // Initialize
+  renderHistory();
+  updateColor('#8b5cf6');
+})();
+</script>
+</body>
+</html>

@@ -18,7 +18,7 @@
   Cross-Origin-Resource-Policy: same-origin
   Cross-Origin-Embedder-Policy: unsafe-none
 
-  # ── Cache-Control — assets
+# ── Cache-Control — Main assets
 /style.css
   Cache-Control: public, max-age=31536000, immutable
 
@@ -27,3 +27,21 @@
 
 /logo.png
   Cache-Control: public, max-age=31536000, immutable
+
+# ── Cache-Control — Tools assets
+/tools/tools.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/tools/tools.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Cache-Control — Blog assets
+/blog/blog.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Cache-Control — HTML pages (short cache for freshness)
+/tools/*.html
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/blog/*.html
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

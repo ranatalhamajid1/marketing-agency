@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Age Calculator – Calculate Your Exact Age Online | NexaGrowth</title>
+<meta name="description" content="Free online Age Calculator. Find your exact age in years, months, and days. Discover your zodiac sign, day of birth, total days lived, and countdown to your next birthday.">
+<meta name="keywords" content="age calculator, birthday calculator, how old am I, date of birth calculator, zodiac sign calculator, days until birthday">
+<link rel="canonical" href="https://nexagrowth.xyz/tools/age-calculator.html">
+<meta property="og:title" content="Age Calculator – Calculate Your Exact Age Online | NexaGrowth">
+<meta property="og:description" content="Find your exact age in years, months, and days. Discover your zodiac sign and days until your next birthday.">
+<meta property="og:url" content="https://nexagrowth.xyz/tools/age-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nexagrowth.xyz/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Age Calculator – NexaGrowth">
+<meta name="twitter:description" content="Calculate your exact age in years, months, and days with zodiac sign and birthday countdown.">
+<link rel="icon" href="../logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tools.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Age Calculator",
+  "url":"https://nexagrowth.xyz/tools/age-calculator.html",
+  "description":"Free online Age Calculator. Find your exact age in years, months, and days with zodiac sign and birthday countdown.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"All",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"NexaGrowth","url":"https://nexagrowth.xyz"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How does the age calculator work?","acceptedAnswer":{"@type":"Answer","text":"The calculator takes your date of birth and calculates the difference between that date and today's date, giving you your exact age in years, months, and days."}},
+    {"@type":"Question","name":"Does it account for leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator fully accounts for leap years when computing your exact age and total days lived."}},
+    {"@type":"Question","name":"How is the zodiac sign determined?","acceptedAnswer":{"@type":"Answer","text":"Your zodiac sign is determined by your birth date falling within specific date ranges for each of the 12 astrological signs."}},
+    {"@type":"Question","name":"Can I calculate age between two dates?","acceptedAnswer":{"@type":"Answer","text":"This calculator calculates the age from a birth date to today. For calculating duration between two arbitrary dates, use a date difference calculator."}},
+    {"@type":"Question","name":"Is this calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator is accurate to the day. It properly handles varying month lengths and leap years for precise results."}}
+  ]
+}
+</script>
+
+<style>
+.age-calculator{position:relative;z-index:1}
+.dob-input-wrap{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:20px}
+.dob-group{display:flex;flex-direction:column;gap:8px;flex:1;min-width:200px}
+.dob-group label{font-size:.82rem;font-weight:600;color:var(--tx2);letter-spacing:.03em;text-transform:uppercase}
+input[type="date"].tool-input{color-scheme:dark}
+.age-results{display:none;margin-top:32px;border-top:1px solid var(--brd);padding-top:32px;position:relative;z-index:1}
+.age-primary{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.age-block{text-align:center;background:var(--glass);border:1px solid var(--brd);border-radius:var(--r2);padding:28px 36px;min-width:120px;transition:border-color .3s,transform .3s}
+.age-block:hover{border-color:var(--brd2);transform:translateY(-4px)}
+.age-block .age-num{font-family:var(--fh);font-size:3rem;font-weight:800;background:var(--ag);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.age-block .age-unit{font-size:.82rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.age-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px}
+.age-detail-card{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r);padding:20px;display:flex;align-items:center;gap:14px;transition:border-color .3s}
+.age-detail-card:hover{border-color:var(--brd2)}
+.age-detail-card .adc-icon{font-size:1.6rem;flex-shrink:0}
+.age-detail-card .adc-info{display:flex;flex-direction:column;gap:4px}
+.age-detail-card .adc-label{font-size:.72rem;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em}
+.age-detail-card .adc-value{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--tx)}
+.zodiac-card{background:linear-gradient(135deg,rgba(139,92,246,.1),rgba(6,182,212,.06));border:1px solid rgba(139,92,246,.25);border-radius:var(--r2);padding:24px;text-align:center;margin-top:16px}
+.zodiac-symbol{font-size:3rem;margin-bottom:8px}
+.zodiac-name{font-family:var(--fh);font-size:1.4rem;font-weight:800;color:var(--tx);margin-bottom:4px}
+.zodiac-dates{font-size:.85rem;color:var(--tx2)}
+.zodiac-trait{font-size:.88rem;color:var(--tx2);margin-top:8px;font-style:italic}
+@media(max-width:600px){
+  .age-primary{gap:12px}
+  .age-block{padding:20px 24px;min-width:90px}
+  .age-block .age-num{font-size:2.2rem}
+  .age-details{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="tool-page">
+
+<!-- Navbar -->
+<nav class="tool-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+      <span class="nav-brand">Nexa<em>Growth</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="index.html">Tools</a>
+  <a href="../blog/index.html">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<main class="tool-main">
+  <div class="container">
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <a href="index.html">Tools</a><span class="sep">›</span>
+      <span class="current">Age Calculator</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="tool-hero">
+      <div class="tool-icon">🎂</div>
+      <h1>Age <em>Calculator</em></h1>
+      <p>Find your exact age in years, months, and days. Discover your zodiac sign, the day you were born, total days lived, and how many days until your next birthday.</p>
+    </div>
+
+    <!-- Calculator -->
+    <div class="tool-card">
+      <div class="age-calculator">
+        <div class="dob-input-wrap">
+          <div class="dob-group">
+            <label for="dobInput">Date of Birth</label>
+            <input type="date" id="dobInput" class="tool-input" max="">
+          </div>
+          <div class="dob-group" style="flex:0 0 auto">
+            <label for="asOfInput">As of Date</label>
+            <input type="date" id="asOfInput" class="tool-input" value="">
+          </div>
+        </div>
+
+        <div class="tool-actions">
+          <button class="btn-primary" onclick="calculateAge()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Calculate Age
+          </button>
+          <button class="btn-secondary" onclick="resetAge()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 9 9"/><polyline points="3 21 3 12 12 12"/></svg>
+            Reset
+          </button>
+          <button class="btn-secondary" onclick="shareTool('Age Calculator – NexaGrowth')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share
+          </button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="age-results" id="ageResults">
+        <div class="age-primary">
+          <div class="age-block">
+            <div class="age-num" id="ageYears">0</div>
+            <div class="age-unit">Years</div>
+          </div>
+          <div class="age-block">
+            <div class="age-num" id="ageMonths">0</div>
+            <div class="age-unit">Months</div>
+          </div>
+          <div class="age-block">
+            <div class="age-num" id="ageDays">0</div>
+            <div class="age-unit">Days</div>
+          </div>
+        </div>
+
+        <div class="age-details">
+          <div class="age-detail-card">
+            <span class="adc-icon">📅</span>
+            <div class="adc-info">
+              <span class="adc-label">Total Days Lived</span>
+              <span class="adc-value" id="totalDays">--</span>
+            </div>
+          </div>
+          <div class="age-detail-card">
+            <span class="adc-icon">⏰</span>
+            <div class="adc-info">
+              <span class="adc-label">Total Hours Lived</span>
+              <span class="adc-value" id="totalHours">--</span>
+            </div>
+          </div>
+          <div class="age-detail-card">
+            <span class="adc-icon">🎉</span>
+            <div class="adc-info">
+              <span class="adc-label">Next Birthday In</span>
+              <span class="adc-value" id="nextBirthday">--</span>
+            </div>
+          </div>
+          <div class="age-detail-card">
+            <span class="adc-icon">📆</span>
+            <div class="adc-info">
+              <span class="adc-label">Born On</span>
+              <span class="adc-value" id="bornDay">--</span>
+            </div>
+          </div>
+          <div class="age-detail-card">
+            <span class="adc-icon">🔢</span>
+            <div class="adc-info">
+              <span class="adc-label">Total Weeks Lived</span>
+              <span class="adc-value" id="totalWeeks">--</span>
+            </div>
+          </div>
+          <div class="age-detail-card">
+            <span class="adc-icon">💓</span>
+            <div class="adc-info">
+              <span class="adc-label">Est. Heartbeats</span>
+              <span class="adc-value" id="heartbeats">--</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="zodiac-card" id="zodiacCard">
+          <div class="zodiac-symbol" id="zodiacSymbol">♈</div>
+          <div class="zodiac-name" id="zodiacName">Aries</div>
+          <div class="zodiac-dates" id="zodiacDates">Mar 21 – Apr 19</div>
+          <div class="zodiac-trait" id="zodiacTrait">Bold, ambitious, and confident</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <section class="tool-section">
+      <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+      <p>The Age Calculator makes it easy to determine your exact age and discover fun facts about your birthday:</p>
+      <ul>
+        <li><strong>Select your date of birth</strong> — Use the date picker to choose your birth date.</li>
+        <li><strong>Optionally change the "As of" date</strong> — Defaults to today, but you can set any target date to calculate age at that point.</li>
+        <li><strong>Click "Calculate Age"</strong> — Your exact age in years, months, and days appears along with detailed stats.</li>
+        <li><strong>Explore your results</strong> — See total days lived, hours lived, birthday countdown, estimated heartbeats, and your zodiac sign.</li>
+        <li><strong>Share your results</strong> — Use the Share button to share this tool with friends.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="tool-section">
+      <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">How does the age calculator work?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">The calculator takes your date of birth and computes the exact difference between that date and today (or your chosen reference date). It breaks the difference down into years, months, and remaining days, accounting for varying month lengths.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does it account for leap years?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Yes, the calculator fully accounts for leap years when computing your total days lived and exact age. February 29th birthdays are handled correctly.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How is the zodiac sign determined?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Your zodiac sign is determined by the month and day of your birth falling within the standard Western astrological date ranges for each of the 12 zodiac signs.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I calculate age between two dates?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Yes! Use the "As of Date" field to set a custom end date. This lets you calculate the age or duration between any two dates — not just from birth to today.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is the estimated heartbeat count accurate?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">The heartbeat estimate is based on an average resting heart rate of ~72 beats per minute. Actual heartbeats vary based on activity level, fitness, age, and health conditions. It's a fun approximation!</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <h3>🚀 Explore More Free Tools</h3>
+      <p>NexaGrowth offers a growing collection of free calculators and productivity tools. Try our BMI Calculator, EMI Calculator, and more!</p>
+      <div class="cta-actions">
+        <a href="index.html" class="btn-primary">Browse All Tools</a>
+        <a href="bmi-calculator.html" class="btn-secondary">BMI Calculator →</a>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <section class="tool-section">
+      <h2><span class="section-icon">🔗</span> Related Tools</h2>
+      <div class="related-grid">
+        <a href="bmi-calculator.html" class="related-card">
+          <span class="rc-icon">⚖️</span>
+          <h3>BMI Calculator</h3>
+          <p>Calculate your Body Mass Index with visual gauge and personalized health tips.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+        <a href="emi-calculator.html" class="related-card">
+          <span class="rc-icon">💰</span>
+          <h3>EMI Calculator</h3>
+          <p>Calculate monthly EMI, total interest, and view amortization schedule with charts.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+        <a href="percentage-calculator.html" class="related-card">
+          <span class="rc-icon">📊</span>
+          <h3>Percentage Calculator</h3>
+          <p>Calculate percentages, percentage changes, and more with our versatile tool.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+        <a href="word-counter.html" class="related-card">
+          <span class="rc-icon">📝</span>
+          <h3>Word Counter</h3>
+          <p>Count words, characters, sentences, and estimate reading time instantly.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="tool-footer">
+  <div class="container">
+    <p>&copy; 2025 <a href="../index.html">NexaGrowth</a>. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="tools.js"></script>
+<script>
+(function(){
+  /* Set default dates */
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
+  document.getElementById('dobInput').max = todayStr;
+  document.getElementById('asOfInput').value = todayStr;
+
+  /* Zodiac data */
+  const zodiacData = [
+    { name:'Capricorn', symbol:'♑', dates:'Dec 22 – Jan 19', trait:'Disciplined, responsible, and self-controlled', startM:12, startD:22, endM:1, endD:19 },
+    { name:'Aquarius',  symbol:'♒', dates:'Jan 20 – Feb 18', trait:'Progressive, original, and independent', startM:1, startD:20, endM:2, endD:18 },
+    { name:'Pisces',    symbol:'♓', dates:'Feb 19 – Mar 20', trait:'Compassionate, artistic, and intuitive', startM:2, startD:19, endM:3, endD:20 },
+    { name:'Aries',     symbol:'♈', dates:'Mar 21 – Apr 19', trait:'Bold, ambitious, and confident', startM:3, startD:21, endM:4, endD:19 },
+    { name:'Taurus',    symbol:'♉', dates:'Apr 20 – May 20', trait:'Reliable, patient, and devoted', startM:4, startD:20, endM:5, endD:20 },
+    { name:'Gemini',    symbol:'♊', dates:'May 21 – Jun 20', trait:'Gentle, curious, and adaptable', startM:5, startD:21, endM:6, endD:20 },
+    { name:'Cancer',    symbol:'♋', dates:'Jun 21 – Jul 22', trait:'Tenacious, loyal, and emotional', startM:6, startD:21, endM:7, endD:22 },
+    { name:'Leo',       symbol:'♌', dates:'Jul 23 – Aug 22', trait:'Creative, passionate, and generous', startM:7, startD:23, endM:8, endD:22 },
+    { name:'Virgo',     symbol:'♍', dates:'Aug 23 – Sep 22', trait:'Loyal, analytical, and kind', startM:8, startD:23, endM:9, endD:22 },
+    { name:'Libra',     symbol:'♎', dates:'Sep 23 – Oct 22', trait:'Cooperative, diplomatic, and fair-minded', startM:9, startD:23, endM:10, endD:22 },
+    { name:'Scorpio',   symbol:'♏', dates:'Oct 23 – Nov 21', trait:'Resourceful, powerful, and brave', startM:10, startD:23, endM:11, endD:21 },
+    { name:'Sagittarius',symbol:'♐', dates:'Nov 22 – Dec 21', trait:'Generous, idealistic, and great sense of humor', startM:11, startD:22, endM:12, endD:21 }
+  ];
+
+  function getZodiac(month, day) {
+    for (const z of zodiacData) {
+      if (z.startM === z.endM) {
+        if (month === z.startM && day >= z.startD && day <= z.endD) return z;
+      } else if (z.startM > z.endM) {
+        /* Wraps around year (Capricorn) */
+        if ((month === z.startM && day >= z.startD) || (month === z.endM && day <= z.endD)) return z;
+      } else {
+        if ((month === z.startM && day >= z.startD) || (month === z.endM && day <= z.endD)) return z;
+      }
+    }
+    return zodiacData[0];
+  }
+
+  function formatNumber(n) {
+    return n.toLocaleString('en-US');
+  }
+
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  window.calculateAge = function() {
+    const dobStr = document.getElementById('dobInput').value;
+    const asOfStr = document.getElementById('asOfInput').value;
+    if (!dobStr) { showToast('Please select your date of birth.'); return; }
+
+    const dob = new Date(dobStr + 'T00:00:00');
+    const asOf = asOfStr ? new Date(asOfStr + 'T00:00:00') : new Date();
+
+    if (dob >= asOf) { showToast('Date of birth must be before the "As of" date.'); return; }
+
+    /* Calculate exact age */
+    let years = asOf.getFullYear() - dob.getFullYear();
+    let months = asOf.getMonth() - dob.getMonth();
+    let days = asOf.getDate() - dob.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(asOf.getFullYear(), asOf.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    /* Total days */
+    const diffMs = asOf.getTime() - dob.getTime();
+    const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const totalHours = totalDays * 24;
+    const totalWeeks = Math.floor(totalDays / 7);
+    const heartbeats = totalDays * 24 * 60 * 72; /* ~72 bpm avg */
+
+    /* Next birthday */
+    let nextBday = new Date(asOf.getFullYear(), dob.getMonth(), dob.getDate());
+    if (nextBday <= asOf) {
+      nextBday = new Date(asOf.getFullYear() + 1, dob.getMonth(), dob.getDate());
+    }
+    const daysUntilBday = Math.ceil((nextBday.getTime() - asOf.getTime()) / (1000 * 60 * 60 * 24));
+
+    /* Day of the week born */
+    const bornDayName = dayNames[dob.getDay()];
+
+    /* Zodiac */
+    const zodiac = getZodiac(dob.getMonth() + 1, dob.getDate());
+
+    /* Display results */
+    document.getElementById('ageResults').style.display = 'block';
+    document.getElementById('ageYears').textContent = years;
+    document.getElementById('ageMonths').textContent = months;
+    document.getElementById('ageDays').textContent = days;
+    document.getElementById('totalDays').textContent = formatNumber(totalDays) + ' days';
+    document.getElementById('totalHours').textContent = formatNumber(totalHours) + ' hours';
+    document.getElementById('nextBirthday').textContent = daysUntilBday === 365 || daysUntilBday === 366 ? '🎉 Today!' : daysUntilBday + ' days';
+    document.getElementById('bornDay').textContent = bornDayName;
+    document.getElementById('totalWeeks').textContent = formatNumber(totalWeeks) + ' weeks';
+    document.getElementById('heartbeats').textContent = formatNumber(heartbeats);
+
+    document.getElementById('zodiacSymbol').textContent = zodiac.symbol;
+    document.getElementById('zodiacName').textContent = zodiac.name;
+    document.getElementById('zodiacDates').textContent = zodiac.dates;
+    document.getElementById('zodiacTrait').textContent = zodiac.trait;
+
+    document.getElementById('ageResults').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  window.resetAge = function() {
+    document.getElementById('dobInput').value = '';
+    document.getElementById('asOfInput').value = todayStr;
+    document.getElementById('ageResults').style.display = 'none';
+    showToast('Calculator reset!');
+  };
+
+  /* Enter key */
+  document.getElementById('dobInput').addEventListener('keydown', e => { if (e.key === 'Enter') calculateAge(); });
+  document.getElementById('asOfInput').addEventListener('keydown', e => { if (e.key === 'Enter') calculateAge(); });
+})();
+</script>
+</body>
+</html>

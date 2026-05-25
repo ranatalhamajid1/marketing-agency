@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Word Counter — Count Words, Characters &amp; Reading Time | NexaGrowth</title>
+  <meta name="description" content="Free online word counter tool. Count words, characters (with/without spaces), sentences, paragraphs, and estimated reading time in real-time as you type.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/word-counter.html">
+
+  <!-- OG -->
+  <meta property="og:title" content="Word Counter — Count Words, Characters & Reading Time | NexaGrowth">
+  <meta property="og:description" content="Free online word counter tool. Count words, characters, sentences, paragraphs, and estimated reading time in real-time.">
+  <meta property="og:url" content="https://nexagrowth.xyz/tools/word-counter.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nexagrowth.xyz/og/word-counter.png">
+  <meta property="og:site_name" content="NexaGrowth">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word Counter — NexaGrowth Tools">
+  <meta name="twitter:description" content="Count words, characters, sentences, paragraphs and reading time in real-time.">
+  <meta name="twitter:image" content="https://nexagrowth.xyz/og/word-counter.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tools.css">
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Counter",
+    "url": "https://nexagrowth.xyz/tools/word-counter.html",
+    "description": "Free online word counter tool. Count words, characters, sentences, paragraphs, and estimated reading time in real-time.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "NexaGrowth", "url": "https://nexagrowth.xyz" }
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the word counter work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Simply type or paste your text into the input area. The tool counts words, characters, sentences, paragraphs, and reading time in real-time as you type — no button clicks needed." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between characters with and without spaces?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Characters with spaces counts every character including spaces and line breaks. Characters without spaces excludes all whitespace, giving you only the count of actual letters, numbers, and symbols." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is reading time estimated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Reading time is estimated based on an average reading speed of 200 words per minute, which is the standard for adult readers." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a text length limit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The tool runs entirely in your browser, so there is no upload or server limit. It can handle very large texts with ease." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+</head>
+<body class="tool-page">
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="tool-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+        <span class="nav-brand">Nexa<em>Growth</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html" class="active">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Tools</a>
+    <a href="../blog/index.html">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="tool-main">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">›</span>
+        <a href="index.html">Tools</a><span class="sep">›</span>
+        <span class="current">Word Counter</span>
+      </nav>
+
+      <!-- Hero -->
+      <div class="tool-hero">
+        <div class="tool-icon">📝</div>
+        <h1>Word <em>Counter</em></h1>
+        <p>Count words, characters, sentences, paragraphs and estimated reading time — all in real-time as you type.</p>
+      </div>
+
+      <!-- Tool Card -->
+      <div class="tool-card">
+        <div class="tool-grid single">
+          <div>
+            <div class="tool-label">
+              <span>Your Text</span>
+              <span class="char-count" id="charHint">0 characters</span>
+            </div>
+            <textarea class="tool-textarea" id="textInput" rows="10" placeholder="Type or paste your text here…" spellcheck="false"></textarea>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="result-stats" id="stats">
+          <div class="stat-item">
+            <span class="stat-number" id="wordCount">0</span>
+            <span class="stat-label">Words</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="charWithSpaces">0</span>
+            <span class="stat-label">Characters</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="charNoSpaces">0</span>
+            <span class="stat-label">Chars (no spaces)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="sentenceCount">0</span>
+            <span class="stat-label">Sentences</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="paragraphCount">0</span>
+            <span class="stat-label">Paragraphs</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="readingTime">0 min</span>
+            <span class="stat-label">Reading Time</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="tool-actions">
+          <button class="btn-primary" id="copyBtn" onclick="copyToClipboard(document.getElementById('textInput').value, this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Text
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('textInput').value='';countText();">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- How to Use -->
+      <section class="tool-section">
+        <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+        <p>The Word Counter analyzes your text instantly as you type, giving you detailed statistics without needing to press any buttons.</p>
+        <ul>
+          <li><strong>Type or Paste:</strong> Enter your text in the input area above. All counts update in real-time.</li>
+          <li><strong>Words:</strong> Total number of words separated by whitespace.</li>
+          <li><strong>Characters:</strong> Total characters including spaces, and a separate count excluding spaces.</li>
+          <li><strong>Sentences:</strong> Counted by periods, exclamation marks, and question marks.</li>
+          <li><strong>Paragraphs:</strong> Counted by non-empty lines separated by line breaks.</li>
+          <li><strong>Reading Time:</strong> Estimated at 200 words per minute, the average adult reading speed.</li>
+          <li><strong>Copy or Reset:</strong> Use the buttons to copy your text or clear the input.</li>
+        </ul>
+        <p>This tool is perfect for writers, students, bloggers, and anyone who needs to check word count for essays, social media posts, or SEO content.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="tool-section">
+        <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">
+              How does the word counter work?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Simply type or paste your text into the input area. The tool counts words, characters, sentences, paragraphs, and reading time in real-time as you type — no button clicks needed.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              What is the difference between characters with and without spaces?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Characters with spaces counts every character including spaces and line breaks. Characters without spaces excludes all whitespace, giving you only the count of actual letters, numbers, and symbols.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              How is reading time estimated?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Reading time is estimated based on an average reading speed of 200 words per minute, which is the standard for adult readers.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              Is there a text length limit?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">No. The tool runs entirely in your browser, so there is no upload or server limit. It can handle very large texts with ease.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Tools -->
+      <section class="tool-section">
+        <h2><span class="section-icon">🔗</span> Related Tools</h2>
+        <div class="related-grid">
+          <a href="case-converter.html" class="related-card">
+            <span class="rc-icon">🔠</span>
+            <h3>Case Converter</h3>
+            <p>Convert text between UPPERCASE, lowercase, Title Case and more.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="slug-generator.html" class="related-card">
+            <span class="rc-icon">🔗</span>
+            <h3>Slug Generator</h3>
+            <p>Create clean, URL-friendly slugs from any text instantly.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="meta-tag-generator.html" class="related-card">
+            <span class="rc-icon">🏷️</span>
+            <h3>Meta Tag Generator</h3>
+            <p>Generate complete SEO meta tags including OG and Twitter cards.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="ai-caption-generator.html" class="related-card">
+            <span class="rc-icon">✨</span>
+            <h3>AI Caption Generator</h3>
+            <p>Generate engaging social media captions with hashtag suggestions.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h3>Explore More Free Tools</h3>
+        <p>NexaGrowth offers a growing collection of free marketing and productivity tools designed for creators, marketers, and developers.</p>
+        <div class="cta-actions">
+          <a href="index.html" class="btn-primary">Browse All Tools</a>
+          <button class="btn-secondary" onclick="shareTool('Word Counter — NexaGrowth')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share This Tool
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="tool-footer">
+    <div class="container">
+      <p>&copy; 2025 NexaGrowth. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tools.js"></script>
+  <script>
+  (function WordCounter() {
+    const input = document.getElementById('textInput');
+    const charHint = document.getElementById('charHint');
+    const wordEl = document.getElementById('wordCount');
+    const charWithEl = document.getElementById('charWithSpaces');
+    const charNoEl = document.getElementById('charNoSpaces');
+    const sentEl = document.getElementById('sentenceCount');
+    const paraEl = document.getElementById('paragraphCount');
+    const readEl = document.getElementById('readingTime');
+
+    function countText() {
+      const text = input.value;
+
+      // Characters
+      const charsWithSpaces = text.length;
+      const charsNoSpaces = text.replace(/\s/g, '').length;
+
+      // Words
+      const trimmed = text.trim();
+      const words = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
+
+      // Sentences
+      const sentences = trimmed === '' ? 0 : (text.match(/[.!?]+(?=\s|$)/g) || []).length || (words > 0 ? 1 : 0);
+
+      // Paragraphs
+      const paragraphs = trimmed === '' ? 0 : text.split(/\n\s*\n|\n/).filter(p => p.trim().length > 0).length;
+
+      // Reading time (200 wpm)
+      const minutes = Math.ceil(words / 200);
+      const readTime = words === 0 ? '0 min' : minutes <= 1 ? '< 1 min' : minutes + ' min';
+
+      // Update UI
+      charHint.textContent = charsWithSpaces.toLocaleString() + ' characters';
+      wordEl.textContent = words.toLocaleString();
+      charWithEl.textContent = charsWithSpaces.toLocaleString();
+      charNoEl.textContent = charsNoSpaces.toLocaleString();
+      sentEl.textContent = sentences.toLocaleString();
+      paraEl.textContent = paragraphs.toLocaleString();
+      readEl.textContent = readTime;
+    }
+
+    input.addEventListener('input', countText);
+
+    // Expose for reset button
+    window.countText = countText;
+  })();
+  </script>
+</body>
+</html>

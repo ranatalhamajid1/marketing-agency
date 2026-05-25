@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSS Gradient Generator — Create Beautiful Gradients | NexaGrowth</title>
+<meta name="description" content="Create stunning CSS gradients with a live visual editor. Choose colors, direction, gradient type, add color stops, and copy the generated CSS code. Free online tool.">
+<link rel="canonical" href="https://nexagrowth.xyz/tools/css-gradient-generator.html">
+<meta property="og:title" content="CSS Gradient Generator — Create Beautiful Gradients | NexaGrowth">
+<meta property="og:description" content="Create stunning CSS gradients with a live visual editor. Copy generated CSS code instantly.">
+<meta property="og:url" content="https://nexagrowth.xyz/tools/css-gradient-generator.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nexagrowth.xyz/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSS Gradient Generator — NexaGrowth">
+<meta name="twitter:description" content="Create beautiful CSS gradients with a live visual editor.">
+<link rel="icon" href="../logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tools.css">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"CSS Gradient Generator",
+  "url":"https://nexagrowth.xyz/tools/css-gradient-generator.html",
+  "applicationCategory":"DesignApplication",
+  "operatingSystem":"All",
+  "description":"Create beautiful CSS linear and radial gradients with a live visual editor.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"NexaGrowth","url":"https://nexagrowth.xyz"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a CSS gradient?","acceptedAnswer":{"@type":"Answer","text":"A CSS gradient is a smooth transition between two or more colors rendered by the browser. CSS supports linear gradients (in a straight direction) and radial gradients (from a center point outward)."}},
+    {"@type":"Question","name":"What is the difference between linear and radial gradients?","acceptedAnswer":{"@type":"Answer","text":"Linear gradients transition colors along a straight line (e.g., top to bottom, left to right, or at an angle). Radial gradients transition from a center point outward in a circular or elliptical shape."}},
+    {"@type":"Question","name":"Can I add more than two color stops?","acceptedAnswer":{"@type":"Answer","text":"Yes! Click the 'Add Color Stop' button to add additional colors. You can add as many stops as you need and remove any extra stops."}},
+    {"@type":"Question","name":"How do I use the generated CSS?","acceptedAnswer":{"@type":"Answer","text":"Copy the generated CSS code and paste it into your stylesheet. Apply it as a 'background' property to any element. The code includes browser-compatible syntax."}}
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+
+<style>
+.gg-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative;z-index:1}
+@media(max-width:700px){.gg-layout{grid-template-columns:1fr}}
+.gg-preview{width:100%;height:220px;border-radius:var(--r);border:2px solid var(--brd);transition:background .3s;margin-bottom:16px}
+.gg-controls{display:flex;flex-direction:column;gap:16px}
+.gg-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.gg-row label{font-size:.78rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.04em;min-width:70px}
+.gg-stops{display:flex;flex-direction:column;gap:10px}
+.gg-stop{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:10px 14px}
+.gg-stop-color{width:40px;height:36px;border:none;border-radius:8px;cursor:pointer;padding:0;background:transparent}
+.gg-stop-color::-webkit-color-swatch-wrapper{padding:0}
+.gg-stop-color::-webkit-color-swatch{border:2px solid var(--brd3);border-radius:6px}
+.gg-stop-color::-moz-color-swatch{border:2px solid var(--brd3);border-radius:6px}
+.gg-stop-pos{width:60px;background:var(--bg3);border:1px solid var(--brd);color:var(--tx);border-radius:6px;padding:6px 8px;font-size:.85rem;text-align:center;outline:none}
+.gg-stop-pos:focus{border-color:var(--a)}
+.gg-stop-label{font-size:.78rem;color:var(--tx3);flex:1}
+.gg-stop-remove{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--tx3);background:transparent;border:1px solid transparent;cursor:pointer;transition:.25s;flex-shrink:0}
+.gg-stop-remove:hover{color:#f43f5e;border-color:rgba(244,63,94,.3);background:rgba(244,63,94,.08)}
+.gg-output{position:relative}
+.gg-code{background:var(--bg2);border:1.5px solid var(--brd);border-radius:var(--r);padding:18px;font-family:'Courier New',monospace;font-size:.85rem;color:var(--a2);line-height:1.7;white-space:pre-wrap;word-break:break-all;min-height:80px}
+</style>
+</head>
+<body class="tool-page">
+
+<!-- Navbar -->
+<nav class="tool-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+      <span class="nav-brand">Nexa<em>Growth</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="index.html">Tools</a>
+  <a href="../blog/index.html">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<main class="tool-main">
+<div class="container">
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="index.html">Tools</a><span class="sep">›</span>
+    <span class="current">CSS Gradient Generator</span>
+  </nav>
+
+  <!-- Hero -->
+  <div class="tool-hero">
+    <div class="tool-icon">🌈</div>
+    <h1>CSS Gradient <em>Generator</em></h1>
+    <p>Create stunning linear and radial gradients with a live visual editor. Customize colors, direction, add stops, and copy the CSS code in one click.</p>
+  </div>
+
+  <!-- Tool Card -->
+  <div class="tool-card">
+    <div class="gg-layout">
+      <!-- Left: Preview + Output -->
+      <div>
+        <div class="tool-label">Preview</div>
+        <div class="gg-preview" id="gg-preview"></div>
+        <div class="gg-output">
+          <div class="tool-label">
+            Generated CSS
+            <button class="btn-icon" onclick="copyCss()" title="Copy CSS" id="btn-copy-css">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="gg-code" id="gg-code"></div>
+        </div>
+      </div>
+
+      <!-- Right: Controls -->
+      <div class="gg-controls">
+        <div>
+          <div class="tool-label">Gradient Type</div>
+          <select class="tool-select" id="gg-type" onchange="updateGradient()">
+            <option value="linear">Linear Gradient</option>
+            <option value="radial">Radial Gradient</option>
+          </select>
+        </div>
+
+        <div id="direction-wrap">
+          <div class="tool-label">Direction</div>
+          <select class="tool-select" id="gg-direction" onchange="updateGradient()">
+            <option value="to right">To Right →</option>
+            <option value="to left">To Left ←</option>
+            <option value="to bottom" selected>To Bottom ↓</option>
+            <option value="to top">To Top ↑</option>
+            <option value="to bottom right">To Bottom Right ↘</option>
+            <option value="to bottom left">To Bottom Left ↙</option>
+            <option value="to top right">To Top Right ↗</option>
+            <option value="to top left">To Top Left ↖</option>
+            <option value="45deg">45°</option>
+            <option value="90deg">90°</option>
+            <option value="135deg">135°</option>
+            <option value="180deg">180°</option>
+            <option value="225deg">225°</option>
+            <option value="270deg">270°</option>
+            <option value="315deg">315°</option>
+          </select>
+        </div>
+
+        <div id="radial-shape-wrap" style="display:none">
+          <div class="tool-label">Shape</div>
+          <select class="tool-select" id="gg-shape" onchange="updateGradient()">
+            <option value="circle">Circle</option>
+            <option value="ellipse" selected>Ellipse</option>
+          </select>
+        </div>
+
+        <div>
+          <div class="tool-label" style="margin-bottom:10px">Color Stops</div>
+          <div class="gg-stops" id="gg-stops"></div>
+          <button class="btn-secondary btn-sm" style="margin-top:12px" onclick="addStop()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Color Stop
+          </button>
+        </div>
+
+        <div class="tool-actions">
+          <button class="btn-primary" onclick="randomGradient()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+            Random
+          </button>
+          <button class="btn-secondary" onclick="copyCss()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy CSS
+          </button>
+          <button class="btn-secondary" onclick="resetGradient()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Use -->
+  <section class="tool-section">
+    <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+    <p>Designing beautiful gradients is simple:</p>
+    <ul>
+      <li>Choose a <strong>gradient type</strong> — linear (directional) or radial (circular/elliptical).</li>
+      <li>Select the <strong>direction</strong> for linear gradients or the <strong>shape</strong> for radial gradients.</li>
+      <li>Use the <strong>color pickers</strong> to set your color stops. Adjust the <strong>position percentage</strong> for precise placement.</li>
+      <li>Click <strong>"Add Color Stop"</strong> to introduce more colors into your gradient.</li>
+      <li>Click <strong>"Random"</strong> to generate a beautiful random gradient for inspiration.</li>
+      <li>The <strong>live preview</strong> updates instantly. Copy the generated <strong>CSS code</strong> with one click.</li>
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tool-section">
+    <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          What is a CSS gradient?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">A CSS gradient is a smooth color transition rendered by the browser as a background image. Unlike image files, gradients are resolution-independent, lightweight, and fully customizable through CSS code.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          What's the difference between linear and radial gradients?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Linear gradients transition along a straight line — from one side to another or at an angle. Radial gradients radiate outward from a center point, creating circular or elliptical patterns. Both support multiple color stops.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Can I add more than two color stops?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely! Click the "Add Color Stop" button to add as many color stops as you need. Each stop includes a color picker and a position slider. You can also remove any stop except the first two.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          How do I use the generated CSS?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Click "Copy CSS" to copy the gradient code, then paste it into your CSS file as a <code>background</code> property. For example: <code>.my-element { background: linear-gradient(...); }</code></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="tool-section">
+    <h2><span class="section-icon">🧰</span> Related Tools</h2>
+    <div class="related-grid">
+      <a href="color-picker.html" class="related-card">
+        <span class="rc-icon">🎨</span>
+        <h3>Color Picker</h3>
+        <p>Pick colors and get HEX, RGB, and HSL values instantly.</p>
+        <span class="rc-arrow">Try it →</span>
+      </a>
+      <a href="password-generator.html" class="related-card">
+        <span class="rc-icon">🔐</span>
+        <h3>Password Generator</h3>
+        <p>Generate strong, secure passwords with custom options.</p>
+        <span class="rc-arrow">Try it →</span>
+      </a>
+      <a href="qr-code-generator.html" class="related-card">
+        <span class="rc-icon">📱</span>
+        <h3>QR Code Generator</h3>
+        <p>Generate QR codes from any text or URL instantly.</p>
+        <span class="rc-arrow">Try it →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <div class="cta-box">
+    <h3>Explore More Free Tools</h3>
+    <p>From SEO analyzers to design utilities — NexaGrowth has the tools you need to supercharge your workflow.</p>
+    <div class="cta-actions">
+      <a href="index.html" class="btn-primary">Browse All Tools</a>
+      <a href="../blog/index.html" class="btn-secondary">Read Our Blog</a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="tool-footer">
+  <div class="container">
+    <p>&copy; 2025 NexaGrowth. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="tools.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  const previewEl   = document.getElementById('gg-preview');
+  const codeEl      = document.getElementById('gg-code');
+  const stopsEl     = document.getElementById('gg-stops');
+  const typeSelect  = document.getElementById('gg-type');
+  const dirSelect   = document.getElementById('gg-direction');
+  const shapeSelect = document.getElementById('gg-shape');
+  const dirWrap     = document.getElementById('direction-wrap');
+  const radialWrap  = document.getElementById('radial-shape-wrap');
+
+  let stops = [
+    { color: '#8b5cf6', position: 0 },
+    { color: '#06b6d4', position: 100 }
+  ];
+
+  function renderStops() {
+    stopsEl.innerHTML = stops.map((s, i) => `
+      <div class="gg-stop">
+        <input type="color" class="gg-stop-color" value="${s.color}" data-idx="${i}" onchange="updateStopColor(${i}, this.value)">
+        <span class="gg-stop-label">${s.color}</span>
+        <input type="number" class="gg-stop-pos" value="${s.position}" min="0" max="100" data-idx="${i}" onchange="updateStopPos(${i}, this.value)" title="Position %">
+        <span style="font-size:.75rem;color:var(--tx3)">%</span>
+        ${stops.length > 2 ? `<button class="gg-stop-remove" onclick="removeStop(${i})" title="Remove stop">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>` : '<span style="width:28px"></span>'}
+      </div>
+    `).join('');
+  }
+
+  function buildGradient() {
+    const type = typeSelect.value;
+    const sortedStops = [...stops].sort((a,b) => a.position - b.position);
+    const stopsStr = sortedStops.map(s => `${s.color} ${s.position}%`).join(', ');
+
+    let css;
+    if (type === 'linear') {
+      const dir = dirSelect.value;
+      css = `linear-gradient(${dir}, ${stopsStr})`;
+    } else {
+      const shape = shapeSelect.value;
+      css = `radial-gradient(${shape}, ${stopsStr})`;
+    }
+    return css;
+  }
+
+  window.updateGradient = function() {
+    const type = typeSelect.value;
+    dirWrap.style.display = type === 'linear' ? '' : 'none';
+    radialWrap.style.display = type === 'radial' ? '' : 'none';
+
+    const css = buildGradient();
+    previewEl.style.background = css;
+    codeEl.textContent = `background: ${css};`;
+  };
+
+  window.updateStopColor = function(idx, color) {
+    stops[idx].color = color;
+    renderStops();
+    updateGradient();
+  };
+
+  window.updateStopPos = function(idx, pos) {
+    stops[idx].position = Math.max(0, Math.min(100, parseInt(pos) || 0));
+    updateGradient();
+  };
+
+  window.addStop = function() {
+    if (stops.length >= 10) {
+      showToast('Maximum 10 color stops');
+      return;
+    }
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    // Find a good position
+    const lastPos = stops[stops.length - 1].position;
+    const secondLastPos = stops.length > 1 ? stops[stops.length - 2].position : 0;
+    const newPos = Math.min(100, Math.round((lastPos + secondLastPos) / 2) || 50);
+    stops.push({ color: randomColor, position: newPos });
+    // Re-sort and redistribute if needed
+    stops.sort((a,b) => a.position - b.position);
+    renderStops();
+    updateGradient();
+  };
+
+  window.removeStop = function(idx) {
+    if (stops.length <= 2) return;
+    stops.splice(idx, 1);
+    renderStops();
+    updateGradient();
+  };
+
+  window.copyCss = function() {
+    const css = `background: ${buildGradient()};`;
+    copyToClipboard(css, document.getElementById('btn-copy-css'));
+  };
+
+  window.randomGradient = function() {
+    const count = 2 + Math.floor(Math.random() * 2); // 2-3 stops
+    stops = [];
+    for (let i = 0; i < count; i++) {
+      stops.push({
+        color: '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'),
+        position: Math.round((i / (count - 1)) * 100)
+      });
+    }
+    // Random type & direction
+    typeSelect.value = Math.random() > 0.3 ? 'linear' : 'radial';
+    if (typeSelect.value === 'linear') {
+      const dirs = dirSelect.options;
+      dirSelect.selectedIndex = Math.floor(Math.random() * dirs.length);
+    }
+    renderStops();
+    updateGradient();
+  };
+
+  window.resetGradient = function() {
+    stops = [
+      { color: '#8b5cf6', position: 0 },
+      { color: '#06b6d4', position: 100 }
+    ];
+    typeSelect.value = 'linear';
+    dirSelect.value = 'to bottom';
+    shapeSelect.value = 'ellipse';
+    renderStops();
+    updateGradient();
+  };
+
+  // Initialize
+  renderStops();
+  updateGradient();
+})();
+</script>
+</body>
+</html>

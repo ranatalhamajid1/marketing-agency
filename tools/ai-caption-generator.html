@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AI Caption Generator — Social Media Captions for Instagram, Twitter & More | NexaGrowth</title>
+  <meta name="description" content="Generate engaging social media captions for Instagram, Twitter, LinkedIn & TikTok. Choose your tone and topic — get 5 unique captions with hashtag suggestions. Free, no signup."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/ai-caption-generator.html"/>
+  <meta property="og:type" content="website"/><meta property="og:url" content="https://nexagrowth.xyz/tools/ai-caption-generator.html"/>
+  <meta property="og:title" content="Free AI Caption Generator | NexaGrowth Tools"/>
+  <meta property="og:description" content="Generate engaging social media captions with hashtags. Choose platform and tone."/>
+  <meta property="og:image" content="https://nexagrowth.xyz/og-image.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI Caption Generator","url":"https://nexagrowth.xyz/tools/ai-caption-generator.html","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"NexaGrowth"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the AI caption generator work?","acceptedAnswer":{"@type":"Answer","text":"It uses smart templates and keyword insertion to generate relevant, engaging captions based on your topic, platform, and tone selection."}},{"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes! It's 100% free with no signup, no limits, and no hidden charges."}},{"@type":"Question","name":"Can I use these captions commercially?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. All generated captions are free to use for personal and commercial purposes."}}]}</script>
+  <link rel="icon" type="image/png" href="../logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="tools.css"/>
+</head>
+<body>
+<div class="tool-page">
+  <nav class="tool-nav" role="navigation"><div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36" loading="lazy"/><span class="nav-brand">Nexa<em>Growth</em></span></a>
+    <div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+    <a href="../index.html#contact" class="nav-cta">Free Consultation</a>
+    <button class="nav-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div><div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div></nav>
+
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">AI Caption Generator</span></nav>
+
+    <div class="tool-hero">
+      <div class="tool-icon">✨</div>
+      <h1>AI <em>Caption Generator</em></h1>
+      <p>Generate scroll-stopping social media captions in seconds. Pick your platform, tone, and topic — get 5 unique captions with hashtag suggestions.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-grid">
+        <div>
+          <div class="tool-label"><span>Your Topic / Keywords</span></div>
+          <textarea class="tool-textarea" id="cap-topic" placeholder="e.g. morning coffee, productivity tips, new product launch, travel photography..." rows="3"></textarea>
+
+          <div class="tool-options" style="margin-top:16px">
+            <div class="tool-option">
+              <label for="cap-platform">Platform</label>
+              <select id="cap-platform" class="tool-select">
+                <option value="instagram">Instagram</option>
+                <option value="twitter">Twitter / X</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="tiktok">TikTok</option>
+              </select>
+            </div>
+            <div class="tool-option">
+              <label for="cap-tone">Tone</label>
+              <select id="cap-tone" class="tool-select">
+                <option value="professional">Professional</option>
+                <option value="casual" selected>Casual</option>
+                <option value="funny">Funny / Witty</option>
+                <option value="motivational">Motivational</option>
+                <option value="storytelling">Storytelling</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="tool-actions" style="margin-top:20px">
+            <button class="btn-primary" onclick="generateCaptions()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Generate Captions</button>
+            <button class="btn-secondary" onclick="document.getElementById('cap-topic').value='';document.getElementById('cap-results').innerHTML=''">Reset</button>
+          </div>
+        </div>
+        <div>
+          <div class="tool-label"><span>Generated Captions</span></div>
+          <div id="cap-results" style="display:flex;flex-direction:column;gap:12px">
+            <div class="tool-output" style="min-height:200px"><span class="tool-output-empty">Your captions will appear here. Enter a topic and click Generate!</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+      <ul>
+        <li>Enter your topic, keywords, or a brief description of your post</li>
+        <li>Select your target platform (Instagram, Twitter, LinkedIn, or TikTok)</li>
+        <li>Choose a tone that matches your brand voice</li>
+        <li>Click "Generate Captions" to get 5 unique variations</li>
+        <li>Click the copy button on any caption to copy it to your clipboard</li>
+        <li>Customize the captions to match your personal style before posting</li>
+      </ul>
+      <p>For more social media tips, check out our guide on <a href="../blog/instagram-growth-tips.html" style="color:var(--a)">Instagram growth strategies</a>.</p>
+    </section>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q">How does the AI caption generator work?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Our tool uses intelligent templates combined with your keywords to generate relevant, engaging captions. Each caption is structured for maximum engagement on your chosen platform — optimized for character limits, hashtag usage, and audience expectations.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Are the captions unique?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Each generation produces unique combinations using your specific keywords and randomized templates. We recommend personalizing the output to match your unique brand voice for best results.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Can I use these captions for my business?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Absolutely! All generated captions are free to use for personal and commercial purposes. We recommend adding your own personal touch to make them truly yours.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Why should I customize the captions?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">While our tool generates great starting points, your audience connects with authentic voices. Add personal anecdotes, brand-specific language, or local references to make each caption uniquely yours.</div></div></div>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">🛠️</span> Related Tools</h2>
+      <div class="related-grid">
+        <a href="word-counter.html" class="related-card"><span class="rc-icon">📝</span><h3>Word Counter</h3><p>Count words and characters for your posts.</p><span class="rc-arrow">Use Tool →</span></a>
+        <a href="case-converter.html" class="related-card"><span class="rc-icon">🔤</span><h3>Case Converter</h3><p>Convert text between different cases.</p><span class="rc-arrow">Use Tool →</span></a>
+        <a href="meta-tag-generator.html" class="related-card"><span class="rc-icon">🏷️</span><h3>Meta Tag Generator</h3><p>Generate SEO meta tags for your content.</p><span class="rc-arrow">Use Tool →</span></a>
+      </div>
+    </section>
+
+    <div class="cta-box"><h3>Grow Your Social Media Presence</h3><p>Explore our full suite of free tools and expert blog for more growth strategies.</p><div class="cta-actions"><a href="index.html" class="btn-primary">Browse All Tools</a><a href="../blog/instagram-growth-tips.html" class="btn-secondary">Instagram Growth Guide</a></div></div>
+  </div></main>
+
+  <footer class="tool-footer"><div class="container"><p>© 2026 NexaGrowth. All rights reserved.</p><div class="footer-links"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div></div></footer>
+</div>
+<script src="tools.js"></script>
+<script>
+const templates={
+  instagram:{
+    professional:['Elevating {topic} to the next level. Here\'s what we\'ve learned about making it work →','The secret behind great {topic}? Consistency, strategy, and a little bit of magic. Let me break it down 👇','If you\'re serious about {topic}, this is your sign to start today. No more excuses — just results.','We\'ve helped hundreds of brands master {topic}. Here are 3 lessons that changed everything:','Your competitors are already investing in {topic}. Here\'s how to stay ahead of the curve 🚀'],
+    casual:['Okay but can we talk about {topic}? Because I\'m obsessed 😍','POV: You finally figured out {topic} and everything just clicks ✨','Hot take: {topic} is about to change the game. Who\'s with me?','The way {topic} makes everything better > literally anything else','Currently vibing with {topic} and honestly? No regrets 🙌'],
+    funny:['Me before learning about {topic}: 😴\nMe after: 🚀💪','If {topic} was a person, I\'d definitely swipe right 😂','Plot twist: {topic} was the main character all along 🎬','Everyone\'s talking about {topic} but nobody\'s talking about how addictive it is 👀','My therapist: What brings you joy?\nMe: {topic}. Obviously.'],
+    motivational:['Your journey with {topic} starts with a single step. Take it today. 💪','Don\'t wait for the perfect moment to start {topic}. The perfect moment is NOW.','Every expert in {topic} was once a beginner. Keep going — your breakthrough is closer than you think. 🌟','The only person standing between you and mastering {topic} is the person in the mirror. Rise up.','Champions aren\'t made in comfort zones. Push through {topic} and watch yourself transform. 🔥'],
+    storytelling:['6 months ago, I knew nothing about {topic}. Today? It\'s completely transformed how I work. Here\'s my journey 🧵','They told me {topic} wouldn\'t work. 3 months later, the results spoke for themselves. Let me share what happened...','I almost gave up on {topic} last year. Then one small change made everything click. Here\'s what I did differently:','The first time I tried {topic}, I failed miserably. But failure taught me something books never could...','Picture this: It\'s Monday morning, and {topic} just helped me accomplish what used to take all week. Here\'s how:']
+  },
+  twitter:{
+    professional:['The future of {topic} is here. Companies that adapt now will lead tomorrow.','3 things I wish I knew about {topic} when I started:\n\n1. Start small\n2. Be consistent\n3. Measure everything','Hot take on {topic}: Most brands are doing it wrong. Here\'s why 🧵','The ROI on {topic} is undeniable. Here are the numbers that prove it →','If you\'re not leveraging {topic} in 2026, you\'re leaving money on the table.'],
+    casual:['can we normalize being obsessed with {topic}?? asking for a friend','real ones know {topic} hits different when you actually commit to it','me: I\'ll spend 5 minutes on {topic}\nalso me: *3 hours later*','not me falling down the {topic} rabbit hole at 2am again','the way {topic} just makes sense once you stop overthinking it'],
+    funny:['my personality is basically {topic} at this point and honestly i\'m fine with it','google search: how to explain {topic} obsession to friends and family','therapist: and how does {topic} make you feel?\nme: *pulls out 47 slides*','{topic}: exists\nmy productivity: aight imma head out','breaking: local person can\'t stop talking about {topic}, friends concerned'],
+    motivational:['Your {topic} journey doesn\'t need to be perfect. It just needs to start. Begin today.','Every master of {topic} was once a disaster at it. Keep pushing.','The gap between where you are and where you want to be with {topic}? Consistency.','Don\'t compare your {topic} chapter 1 to someone else\'s chapter 20.','Small daily improvements in {topic} lead to stunning results. Start now.'],
+    storytelling:['A thread on how {topic} changed my career in 90 days 🧵','I used to think {topic} was overhyped. Then I tried it for 30 days. Here\'s what happened:','The most underrated lesson about {topic}? It\'s not what you think...','Real story: {topic} helped me go from struggling to thriving. Let me explain:','6 months of {topic}: the good, the bad, and the surprising. A honest thread:']
+  },
+  linkedin:{
+    professional:['I\'ve spent the last year deeply immersed in {topic}.\n\nHere are 5 insights that transformed our approach:\n\n→ Data beats opinions\n→ Consistency beats intensity\n→ Systems beat goals\n→ Execution beats strategy\n→ Relationships beat transactions\n\nThe businesses winning at {topic} share one thing: they started before they felt ready.','The landscape of {topic} is changing rapidly.\n\nCompanies that fail to adapt will fall behind.\n\nHere\'s what the top performers are doing differently:','After helping 50+ businesses implement {topic}, I\'ve noticed a pattern.\n\nThe ones that succeed share these 3 characteristics:','Unpopular opinion about {topic}:\n\nMost organizations overthink the strategy and underthink the execution.\n\nThe best results come from:\n✅ Starting small\n✅ Iterating fast\n✅ Measuring obsessively','I was wrong about {topic}.\n\nFor years, I believed the conventional wisdom. Then the data told a different story.\n\nHere\'s what actually works:'],
+    casual:['Real talk about {topic}: it\'s not as complicated as people make it.\n\nHere\'s what actually matters 👇','If I had to start over with {topic}, here\'s exactly what I\'d do differently:\n\n(Spoiler: it\'s simpler than you think)','Hot take: {topic} doesn\'t require a massive budget.\n\nIt requires consistency, patience, and willingness to learn.\n\nWho agrees?','The best advice I ever got about {topic}:\n\n"Stop planning. Start doing."\n\n3 months later, the results spoke for themselves.','Can we stop gatekeeping {topic}?\n\nHere are 5 free resources that helped me more than any expensive course:'],
+    motivational:['To everyone starting their {topic} journey:\n\nYou don\'t need permission. You need persistence.\n\nEvery expert was once a beginner. Start today.','The biggest myth about {topic}: you need to be perfect.\n\nReality: You need to be consistent.\n\nStart messy. Improve daily. Results will follow.','Your {topic} breakthrough is closer than you think.\n\nKeep going. Keep learning. Keep iterating.\n\nThe compound effect is real — and it\'s working in your favor.','I failed at {topic} 7 times before I succeeded.\n\nEach failure taught me something valuable.\n\nDon\'t fear failure — fear not trying.','The world doesn\'t need more {topic} experts.\n\nIt needs more {topic} practitioners.\n\nStop consuming. Start creating. The knowledge comes from doing.'],
+    funny:['My {topic} strategy:\n\nMonday: "I\'ve got this"\nTuesday: "Why isn\'t this working"\nWednesday: *existential crisis*\nThursday: "Wait... it\'s actually working?!"\nFriday: "I\'m basically a genius"\n\nRinse and repeat. 😅','POV: You explain {topic} at a family dinner\n\nFamily: "So what exactly do you do?"\nMe: *deep breath* "Well..."\n\n30 minutes later...\n\nFamily: *eyes glazed over*\nMe: "...and that\'s just the basics."','HR: What\'s your biggest weakness?\nMe: I can\'t stop talking about {topic}\nHR: That\'s not really a—\nMe: Let me show you this 47-slide deck','Things that keep me up at night:\n\n❌ Existential dread\n❌ Global politics\n✅ Whether my {topic} strategy is optimized enough','Explaining {topic} to my non-tech friends:\n\n"Imagine if... no wait...\nOkay so basically... hmm...\nYou know when you... actually never mind.\n\nJust trust me, it\'s cool."'],
+    storytelling:['3 years ago, I knew nothing about {topic}.\n\nToday, it\'s the foundation of everything I do.\n\nHere\'s the unfiltered story of how that transformation happened:\n\n(A thread you\'ll want to save)','The moment {topic} clicked for me was unexpected.\n\nI was sitting in a coffee shop, frustrated after months of trying. Then I noticed something that changed everything...\n\nHere\'s what I learned:','In 2023, I made a bet on {topic} that everyone said was crazy.\n\n"It\'ll never work."\n"You\'re wasting your time."\n"There\'s no money in that."\n\n3 years later, here are the results:','My {topic} journey in numbers:\n\n📅 Month 1: 0 results, maximum confusion\n📅 Month 3: First small win, growing confidence\n📅 Month 6: Consistent results, compounding growth\n📅 Month 12: Complete transformation\n\nThe lesson? Trust the process.','I want to share a {topic} failure.\n\nNot because it\'s fun to relive, but because the lesson was worth more than any success.\n\nHere\'s what happened and what I\'d do differently:']
+  },
+  tiktok:{
+    professional:['The {topic} hack nobody talks about 🤫 #gamechangerr','5 things you\'re doing WRONG with {topic} (and how to fix them today) 📱','Reply to @viewer: Here\'s the truth about {topic} that experts won\'t tell you','Watch me break down {topic} in 60 seconds ⚡ Save this for later!','{topic} tip that took me from 0 to pro 🔥 #learnontiktok'],
+    casual:['when {topic} finally clicks and everything makes sense 😭✨','no because {topic} really just changed my whole vibe fr fr','this is your sign to start {topic} TODAY ☝️ trust me on this one','POV: you discover {topic} and can\'t stop talking about it','rating {topic} strategies from 1-10... the last one is *chef\'s kiss* 🤌'],
+    funny:['me trying to explain {topic} to my parents be like 💀','when someone says {topic} isn\'t important *aggressive eye roll*','told my friends about {topic} and now they think I\'m in a cult 😂','that moment when {topic} actually works and you\'re shook 🤯','my villain origin story was someone saying {topic} doesn\'t matter'],
+    motivational:['Your {topic} era starts NOW 🔥 No more waiting, no more excuses','Day 1 of taking {topic} seriously. Watch me transform 💪','if nobody told you today: you CAN master {topic}. Start now. 🌟','3 months of consistent {topic} > 3 years of wishful thinking','the glow up that comes with mastering {topic}? Unmatched ✨'],
+    storytelling:['Storytime: How {topic} literally changed my life in 30 days','I tried {topic} for a week straight. Here\'s what happened... 👀','Nobody believed me when I started with {topic}. Plot twist: 🔥','The {topic} journey: from total beginner to... well, watch till the end','I have a {topic} confession to make... 🙈 (it\'s actually good news)']
+  }
+};
+const hashtags={
+  instagram:{general:['#growth','#motivation','#explore','#trending','#lifestyle','#instagood','#photooftheday','#love'],topic:['#{t}','#{t}tips','#{t}life','#{t}goals','#{t}community','#{t}daily']},
+  twitter:{general:['#trending','#thread','#tips'],topic:['#{t}','#{t}tips']},
+  linkedin:{general:['#growthmindset','#leadership','#innovation','#careers'],topic:['#{t}','#{t}strategy']},
+  tiktok:{general:['#fyp','#foryou','#viral','#learnontiktok','#trending'],topic:['#{t}','#{t}tok','#{t}tips','#{t}hack']}
+};
+function generateCaptions(){
+  const topic=document.getElementById('cap-topic').value.trim();
+  if(!topic){showToast('Please enter a topic or keyword');return;}
+  const platform=document.getElementById('cap-platform').value;
+  const tone=document.getElementById('cap-tone').value;
+  const tpls=templates[platform]?.[tone]||templates.instagram.casual;
+  const shuffled=[...tpls].sort(()=>Math.random()-.5);
+  const topicClean=topic.replace(/[^a-zA-Z0-9]/g,'').toLowerCase();
+  const tags=[...hashtags[platform].general.sort(()=>Math.random()-.5).slice(0,4),...hashtags[platform].topic.map(t=>t.replace('{t}',topicClean)).slice(0,3)];
+  const results=document.getElementById('cap-results');
+  results.innerHTML='';
+  shuffled.slice(0,5).forEach((tpl,i)=>{
+    const caption=tpl.replace(/\{topic\}/g,topic);
+    const tagStr=tags.sort(()=>Math.random()-.5).slice(0,5).join(' ');
+    const div=document.createElement('div');
+    div.style.cssText='background:var(--bg2);border:1.5px solid var(--brd);border-radius:14px;padding:18px;position:relative';
+    div.innerHTML=`<div style="font-size:.82rem;color:var(--a);font-weight:600;margin-bottom:8px">Caption ${i+1}</div><div style="color:var(--tx);font-size:.92rem;line-height:1.7;white-space:pre-wrap;margin-bottom:12px">${caption}</div><div style="color:var(--tx3);font-size:.82rem;margin-bottom:12px">${tagStr}</div><button class="btn-sm btn-secondary" onclick="copyToClipboard(this.parentElement.querySelector('div:nth-child(2)').textContent+'\\n\\n'+this.parentElement.querySelector('div:nth-child(3)').textContent,this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>`;
+    results.appendChild(div);
+  });
+}
+</script>
+</body>
+</html>

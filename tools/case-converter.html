@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Case Converter — UPPERCASE, lowercase, Title Case &amp; More | NexaGrowth</title>
+  <meta name="description" content="Free online case converter tool. Instantly convert text to UPPERCASE, lowercase, Title Case, Sentence case, and aLtErNaTiNg CaSe with one click.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/case-converter.html">
+
+  <!-- OG -->
+  <meta property="og:title" content="Case Converter — UPPERCASE, lowercase, Title Case & More | NexaGrowth">
+  <meta property="og:description" content="Instantly convert text between UPPERCASE, lowercase, Title Case, Sentence case, and aLtErNaTiNg CaSe.">
+  <meta property="og:url" content="https://nexagrowth.xyz/tools/case-converter.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nexagrowth.xyz/og/case-converter.png">
+  <meta property="og:site_name" content="NexaGrowth">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Converter — NexaGrowth Tools">
+  <meta name="twitter:description" content="Convert text to UPPERCASE, lowercase, Title Case, Sentence case and more.">
+  <meta name="twitter:image" content="https://nexagrowth.xyz/og/case-converter.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tools.css">
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Case Converter",
+    "url": "https://nexagrowth.xyz/tools/case-converter.html",
+    "description": "Free online case converter tool. Convert text to UPPERCASE, lowercase, Title Case, Sentence case, and aLtErNaTiNg CaSe.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "NexaGrowth", "url": "https://nexagrowth.xyz" }
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What text cases can this tool convert?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This tool converts text to five formats: UPPERCASE, lowercase, Title Case (first letter of each word capitalized), Sentence case (first letter of each sentence capitalized), and aLtErNaTiNg CaSe." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I copy a specific converted result?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each conversion result has its own Copy button. Click the copy icon next to the result you want, and it will be copied to your clipboard instantly." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the tool work offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! The Case Converter runs entirely in your browser with JavaScript. Once the page is loaded, it works without an internet connection." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Title Case vs Sentence case?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Title Case capitalizes the first letter of every word (e.g., 'The Quick Brown Fox'). Sentence case only capitalizes the first letter of each sentence (e.g., 'The quick brown fox.')." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+
+  <style>
+    .case-results{display:flex;flex-direction:column;gap:16px;margin-top:20px;position:relative;z-index:1}
+    .case-result{background:var(--bg2);border:1.5px solid var(--brd);border-radius:var(--r);padding:16px 18px;position:relative}
+    .case-result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .case-result-label{font-size:.75rem;font-weight:700;color:var(--a);text-transform:uppercase;letter-spacing:.08em}
+    .case-result-text{font-size:.92rem;color:var(--tx);line-height:1.7;white-space:pre-wrap;word-break:break-word;min-height:20px}
+    .case-result-text.empty{color:var(--tx3);font-style:italic}
+  </style>
+</head>
+<body class="tool-page">
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="tool-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+        <span class="nav-brand">Nexa<em>Growth</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html" class="active">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Tools</a>
+    <a href="../blog/index.html">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="tool-main">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">›</span>
+        <a href="index.html">Tools</a><span class="sep">›</span>
+        <span class="current">Case Converter</span>
+      </nav>
+
+      <!-- Hero -->
+      <div class="tool-hero">
+        <div class="tool-icon">🔠</div>
+        <h1>Case <em>Converter</em></h1>
+        <p>Instantly convert text between UPPERCASE, lowercase, Title Case, Sentence case, and aLtErNaTiNg CaSe.</p>
+      </div>
+
+      <!-- Tool Card -->
+      <div class="tool-card">
+        <div class="tool-grid single">
+          <div>
+            <div class="tool-label">
+              <span>Enter Your Text</span>
+              <span class="char-count" id="charHint">0 characters</span>
+            </div>
+            <textarea class="tool-textarea" id="textInput" rows="6" placeholder="Type or paste your text here…" spellcheck="false"></textarea>
+          </div>
+        </div>
+
+        <!-- Conversion Results -->
+        <div class="case-results" id="results">
+          <div class="case-result">
+            <div class="case-result-header">
+              <span class="case-result-label">UPPERCASE</span>
+              <button class="btn-icon btn-sm" title="Copy" onclick="copyToClipboard(document.getElementById('resUpper').textContent, this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="case-result-text empty" id="resUpper">Result will appear here…</div>
+          </div>
+
+          <div class="case-result">
+            <div class="case-result-header">
+              <span class="case-result-label">lowercase</span>
+              <button class="btn-icon btn-sm" title="Copy" onclick="copyToClipboard(document.getElementById('resLower').textContent, this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="case-result-text empty" id="resLower">Result will appear here…</div>
+          </div>
+
+          <div class="case-result">
+            <div class="case-result-header">
+              <span class="case-result-label">Title Case</span>
+              <button class="btn-icon btn-sm" title="Copy" onclick="copyToClipboard(document.getElementById('resTitle').textContent, this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="case-result-text empty" id="resTitle">Result will appear here…</div>
+          </div>
+
+          <div class="case-result">
+            <div class="case-result-header">
+              <span class="case-result-label">Sentence case</span>
+              <button class="btn-icon btn-sm" title="Copy" onclick="copyToClipboard(document.getElementById('resSentence').textContent, this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="case-result-text empty" id="resSentence">Result will appear here…</div>
+          </div>
+
+          <div class="case-result">
+            <div class="case-result-header">
+              <span class="case-result-label">aLtErNaTiNg CaSe</span>
+              <button class="btn-icon btn-sm" title="Copy" onclick="copyToClipboard(document.getElementById('resAlternating').textContent, this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="case-result-text empty" id="resAlternating">Result will appear here…</div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="tool-actions">
+          <button class="btn-secondary" id="resetBtn" onclick="document.getElementById('textInput').value='';convertCase();">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- How to Use -->
+      <section class="tool-section">
+        <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+        <p>The Case Converter transforms your text into different letter cases in real-time. No sign-up or account needed.</p>
+        <ul>
+          <li><strong>Enter Text:</strong> Type or paste text into the input area. All conversions update instantly.</li>
+          <li><strong>UPPERCASE:</strong> Converts every letter to uppercase — e.g., "HELLO WORLD".</li>
+          <li><strong>lowercase:</strong> Converts every letter to lowercase — e.g., "hello world".</li>
+          <li><strong>Title Case:</strong> Capitalizes the first letter of every word — e.g., "Hello World".</li>
+          <li><strong>Sentence case:</strong> Capitalizes only the first letter of each sentence — e.g., "Hello world. This is great."</li>
+          <li><strong>aLtErNaTiNg CaSe:</strong> Alternates between lowercase and uppercase for each letter — e.g., "hElLo WoRlD".</li>
+          <li><strong>Copy:</strong> Click the copy icon next to each result to copy that specific version.</li>
+        </ul>
+      </section>
+
+      <!-- FAQ -->
+      <section class="tool-section">
+        <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">
+              What text cases can this tool convert?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">This tool converts text to five formats: UPPERCASE, lowercase, Title Case, Sentence case, and aLtErNaTiNg CaSe. All conversions happen simultaneously in real-time.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              How do I copy a specific converted result?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Each conversion result has its own Copy button. Click the copy icon next to the result you want, and it will be copied to your clipboard instantly.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              What is Title Case vs Sentence case?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Title Case capitalizes the first letter of every word (e.g., "The Quick Brown Fox"). Sentence case only capitalizes the first letter of each sentence (e.g., "The quick brown fox.").</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              Does the tool work offline?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Yes! The Case Converter runs entirely in your browser with JavaScript. Once the page is loaded, it works without an internet connection.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Tools -->
+      <section class="tool-section">
+        <h2><span class="section-icon">🔗</span> Related Tools</h2>
+        <div class="related-grid">
+          <a href="word-counter.html" class="related-card">
+            <span class="rc-icon">📝</span>
+            <h3>Word Counter</h3>
+            <p>Count words, characters, sentences, paragraphs and reading time.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="slug-generator.html" class="related-card">
+            <span class="rc-icon">🔗</span>
+            <h3>Slug Generator</h3>
+            <p>Create clean, URL-friendly slugs from any text.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="meta-tag-generator.html" class="related-card">
+            <span class="rc-icon">🏷️</span>
+            <h3>Meta Tag Generator</h3>
+            <p>Generate complete SEO meta tags for your web pages.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="ai-caption-generator.html" class="related-card">
+            <span class="rc-icon">✨</span>
+            <h3>AI Caption Generator</h3>
+            <p>Generate engaging social media captions with hashtags.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h3>Explore More Free Tools</h3>
+        <p>NexaGrowth offers a growing collection of free marketing and productivity tools designed for creators, marketers, and developers.</p>
+        <div class="cta-actions">
+          <a href="index.html" class="btn-primary">Browse All Tools</a>
+          <button class="btn-secondary" onclick="shareTool('Case Converter — NexaGrowth')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share This Tool
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="tool-footer">
+    <div class="container">
+      <p>&copy; 2025 NexaGrowth. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tools.js"></script>
+  <script>
+  (function CaseConverterTool() {
+    const input = document.getElementById('textInput');
+    const charHint = document.getElementById('charHint');
+    const resUpper = document.getElementById('resUpper');
+    const resLower = document.getElementById('resLower');
+    const resTitle = document.getElementById('resTitle');
+    const resSentence = document.getElementById('resSentence');
+    const resAlternating = document.getElementById('resAlternating');
+    const placeholder = 'Result will appear here…';
+
+    function toTitleCase(str) {
+      return str.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+    }
+
+    function toSentenceCase(str) {
+      return str.toLowerCase().replace(/(^\s*|[.!?]\s+)([a-z])/g, (m, sep, ch) => sep + ch.toUpperCase());
+    }
+
+    function toAlternatingCase(str) {
+      let i = 0;
+      return str.split('').map(ch => {
+        if (/[a-zA-Z]/.test(ch)) {
+          return i++ % 2 === 0 ? ch.toLowerCase() : ch.toUpperCase();
+        }
+        return ch;
+      }).join('');
+    }
+
+    function setResult(el, val) {
+      if (val) {
+        el.textContent = val;
+        el.classList.remove('empty');
+      } else {
+        el.textContent = placeholder;
+        el.classList.add('empty');
+      }
+    }
+
+    function convertCase() {
+      const text = input.value;
+      charHint.textContent = text.length.toLocaleString() + ' characters';
+
+      if (!text.trim()) {
+        [resUpper, resLower, resTitle, resSentence, resAlternating].forEach(el => setResult(el, ''));
+        return;
+      }
+
+      setResult(resUpper, text.toUpperCase());
+      setResult(resLower, text.toLowerCase());
+      setResult(resTitle, toTitleCase(text));
+      setResult(resSentence, toSentenceCase(text));
+      setResult(resAlternating, toAlternatingCase(text));
+    }
+
+    input.addEventListener('input', convertCase);
+
+    // Expose for reset button
+    window.convertCase = convertCase;
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EMI Calculator – Calculate Monthly Loan EMI Online | NexaGrowth</title>
+<meta name="description" content="Free online EMI Calculator. Calculate your monthly EMI, total interest, and total payment for any loan. View amortization schedule and visual pie chart breakdown.">
+<meta name="keywords" content="EMI calculator, loan calculator, monthly payment calculator, amortization calculator, interest calculator, home loan EMI, car loan EMI">
+<link rel="canonical" href="https://nexagrowth.xyz/tools/emi-calculator.html">
+<meta property="og:title" content="EMI Calculator – Calculate Monthly Loan EMI Online | NexaGrowth">
+<meta property="og:description" content="Free online EMI Calculator. Calculate monthly EMI, total interest, and view amortization schedule with charts.">
+<meta property="og:url" content="https://nexagrowth.xyz/tools/emi-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nexagrowth.xyz/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EMI Calculator – NexaGrowth">
+<meta name="twitter:description" content="Calculate monthly EMI, total interest, and view amortization schedule with visual charts.">
+<link rel="icon" href="../logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tools.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"EMI Calculator",
+  "url":"https://nexagrowth.xyz/tools/emi-calculator.html",
+  "description":"Free online EMI Calculator. Calculate your monthly EMI, total interest, and total payment for any loan with amortization schedule.",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"All",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"NexaGrowth","url":"https://nexagrowth.xyz"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is EMI?","acceptedAnswer":{"@type":"Answer","text":"EMI stands for Equated Monthly Installment. It is the fixed amount paid monthly to the lender to repay a loan over a specified period. It includes both principal and interest components."}},
+    {"@type":"Question","name":"How is EMI calculated?","acceptedAnswer":{"@type":"Answer","text":"EMI is calculated using the formula: EMI = P × r × (1+r)^n / ((1+r)^n - 1), where P is the principal loan amount, r is the monthly interest rate, and n is the number of monthly installments."}},
+    {"@type":"Question","name":"Does a higher tenure mean lower EMI?","acceptedAnswer":{"@type":"Answer","text":"Yes, a longer tenure reduces your monthly EMI amount. However, you end up paying more total interest over the life of the loan."}},
+    {"@type":"Question","name":"Can I prepay my loan to reduce EMI?","acceptedAnswer":{"@type":"Answer","text":"Yes, most loans allow prepayment. Making lump-sum payments toward the principal can reduce either your EMI amount or loan tenure, saving you interest."}},
+    {"@type":"Question","name":"What factors affect EMI?","acceptedAnswer":{"@type":"Answer","text":"Three main factors affect EMI: the loan principal amount, the interest rate, and the loan tenure (repayment period). A higher principal or interest rate increases EMI, while a longer tenure decreases it."}}
+  ]
+}
+</script>
+
+<style>
+.emi-calculator{position:relative;z-index:1}
+.emi-inputs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+@media(max-width:600px){.emi-inputs{grid-template-columns:1fr}}
+.input-group{display:flex;flex-direction:column;gap:8px}
+.input-group label{font-size:.82rem;font-weight:600;color:var(--tx2);letter-spacing:.03em;text-transform:uppercase}
+.input-group .input-hint{font-size:.72rem;color:var(--tx3);margin-top:2px}
+.input-with-suffix{position:relative}
+.input-with-suffix .tool-input{padding-right:50px}
+.input-suffix{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:.82rem;font-weight:600;color:var(--tx3);pointer-events:none}
+.tenure-wrap{display:flex;gap:8px}
+.tenure-wrap .tool-input{flex:1}
+.tenure-toggle{display:flex;border-radius:10px;overflow:hidden;border:1.5px solid var(--brd);flex-shrink:0}
+.tenure-toggle button{padding:10px 14px;font-size:.8rem;font-weight:600;color:var(--tx3);background:var(--bg2);border:none;cursor:pointer;transition:.25s}
+.tenure-toggle button.active{background:rgba(139,92,246,.2);color:var(--a)}
+.slider-group{margin-bottom:20px}
+.slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.slider-header label{font-size:.82rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.03em}
+.slider-value{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--a)}
+.emi-results{display:none;margin-top:32px;border-top:1px solid var(--brd);padding-top:32px;position:relative;z-index:1}
+.emi-summary{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;align-items:start}
+@media(max-width:700px){.emi-summary{grid-template-columns:1fr}}
+.emi-stats{display:flex;flex-direction:column;gap:16px}
+.emi-stat-card{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r);padding:20px;text-align:center;transition:border-color .3s}
+.emi-stat-card:hover{border-color:var(--brd2)}
+.emi-stat-card .esc-label{font-size:.72rem;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.emi-stat-card .esc-value{font-family:var(--fh);font-size:1.6rem;font-weight:800;line-height:1.2}
+.emi-stat-card.primary .esc-value{background:var(--ag);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.emi-stat-card .esc-value.interest{color:#f59e0b}
+.emi-stat-card .esc-value.total{color:#06b6d4}
+.chart-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+#emiChart{max-width:100%}
+.chart-legend{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--tx2)}
+.legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.amortization-section{margin-top:32px}
+.amortization-section h3{font-size:1.1rem;font-weight:700;color:var(--tx);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.amort-table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--brd)}
+.amort-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.amort-table th{background:var(--bg3);color:var(--tx2);font-weight:600;padding:12px 14px;text-align:left;position:sticky;top:0;text-transform:uppercase;letter-spacing:.04em;font-size:.72rem}
+.amort-table td{padding:10px 14px;border-top:1px solid var(--brd);color:var(--tx)}
+.amort-table tr:hover td{background:var(--glass)}
+.amort-table .highlight{color:var(--a);font-weight:600}
+.amort-toggle{margin-top:12px}
+.yearly-summary{margin-top:16px}
+</style>
+</head>
+<body class="tool-page">
+
+<!-- Navbar -->
+<nav class="tool-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+      <span class="nav-brand">Nexa<em>Growth</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <button class="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="index.html">Tools</a>
+  <a href="../blog/index.html">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<main class="tool-main">
+  <div class="container">
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <a href="index.html">Tools</a><span class="sep">›</span>
+      <span class="current">EMI Calculator</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="tool-hero">
+      <div class="tool-icon">💰</div>
+      <h1>EMI <em>Calculator</em></h1>
+      <p>Calculate your monthly loan EMI, total interest payable, and total payment. View a detailed amortization schedule and visual breakdown of principal vs. interest.</p>
+    </div>
+
+    <!-- Calculator -->
+    <div class="tool-card">
+      <div class="emi-calculator">
+        <!-- Sliders + Inputs -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="loanAmount">Loan Amount</label>
+            <span class="slider-value" id="loanAmountVal">$500,000</span>
+          </div>
+          <input type="range" id="loanAmountSlider" min="1000" max="10000000" step="1000" value="500000">
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <div class="input-with-suffix" style="flex:1">
+              <input type="number" id="loanAmount" class="tool-input" value="500000" min="1" step="1000">
+              <span class="input-suffix">$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="emi-inputs">
+          <div class="slider-group" style="margin-bottom:0">
+            <div class="slider-header">
+              <label for="interestRate">Interest Rate</label>
+              <span class="slider-value" id="interestRateVal">8.5%</span>
+            </div>
+            <input type="range" id="interestRateSlider" min="0.1" max="30" step="0.1" value="8.5">
+            <div class="input-with-suffix" style="margin-top:10px">
+              <input type="number" id="interestRate" class="tool-input" value="8.5" min="0.1" max="50" step="0.1">
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+
+          <div class="slider-group" style="margin-bottom:0">
+            <div class="slider-header">
+              <label for="loanTenure">Loan Tenure</label>
+              <span class="slider-value" id="tenureVal">20 Years</span>
+            </div>
+            <input type="range" id="tenureSlider" min="1" max="360" step="1" value="240">
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <div class="tenure-wrap" style="flex:1">
+                <input type="number" id="loanTenure" class="tool-input" value="240" min="1" max="600">
+                <div class="tenure-toggle" id="tenureToggle">
+                  <button data-unit="months" class="active">Mo</button>
+                  <button data-unit="years">Yr</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-actions">
+          <button class="btn-primary" onclick="calculateEMI()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Calculate EMI
+          </button>
+          <button class="btn-secondary" onclick="resetEMI()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 9 9"/><polyline points="3 21 3 12 12 12"/></svg>
+            Reset
+          </button>
+          <button class="btn-secondary" onclick="shareTool('EMI Calculator – NexaGrowth')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share
+          </button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="emi-results" id="emiResults">
+        <div class="emi-summary">
+          <div class="emi-stats">
+            <div class="emi-stat-card primary">
+              <div class="esc-label">Monthly EMI</div>
+              <div class="esc-value" id="monthlyEMI">--</div>
+            </div>
+            <div class="emi-stat-card">
+              <div class="esc-label">Total Interest Payable</div>
+              <div class="esc-value interest" id="totalInterest">--</div>
+            </div>
+            <div class="emi-stat-card">
+              <div class="esc-label">Total Payment</div>
+              <div class="esc-value total" id="totalPayment">--</div>
+            </div>
+            <div class="emi-stat-card">
+              <div class="esc-label">Interest-to-Principal Ratio</div>
+              <div class="esc-value" id="ratioDisplay" style="color:var(--tx)">--</div>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="emiChart" width="280" height="280"></canvas>
+            <div class="chart-legend">
+              <div class="legend-item"><span class="legend-dot" style="background:#8b5cf6"></span> Principal</div>
+              <div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Interest</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortization -->
+        <div class="amortization-section">
+          <h3>📋 Amortization Schedule</h3>
+          <div style="display:flex;gap:8px;margin-bottom:16px">
+            <button class="btn-secondary btn-sm amort-view-btn active" data-view="yearly" onclick="switchAmortView('yearly')">Yearly View</button>
+            <button class="btn-secondary btn-sm amort-view-btn" data-view="monthly" onclick="switchAmortView('monthly')">Monthly View</button>
+            <button class="btn-secondary btn-sm" onclick="copyAmortization()" style="margin-left:auto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <div class="amort-table-wrap" style="max-height:500px;overflow-y:auto">
+            <table class="amort-table" id="amortTable">
+              <thead><tr><th>Year</th><th>Principal</th><th>Interest</th><th>Total Payment</th><th>Balance</th></tr></thead>
+              <tbody id="amortBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <section class="tool-section">
+      <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+      <p>The EMI Calculator helps you plan your loan repayments with precision:</p>
+      <ul>
+        <li><strong>Set Loan Amount</strong> — Use the slider or type in the amount you wish to borrow.</li>
+        <li><strong>Set Interest Rate</strong> — Enter the annual interest rate offered by your lender.</li>
+        <li><strong>Set Loan Tenure</strong> — Choose the repayment period in months or years using the toggle.</li>
+        <li><strong>Click "Calculate EMI"</strong> — View your monthly EMI, total interest, total payment, and a visual pie chart breakdown.</li>
+        <li><strong>Review the amortization schedule</strong> — Switch between yearly and monthly views to see how each payment is split between principal and interest.</li>
+      </ul>
+      <p>The EMI formula used is: <strong>EMI = P × r × (1+r)^n / ((1+r)^n − 1)</strong>, where P = principal, r = monthly interest rate, n = number of months.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="tool-section">
+      <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">What is EMI?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">EMI stands for Equated Monthly Installment. It is the fixed payment amount you make to the lender each month until the loan is fully repaid. Each EMI consists of both a principal repayment portion and an interest portion.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How is EMI calculated?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">EMI is calculated using the formula: <strong>EMI = P × r × (1+r)^n / ((1+r)^n - 1)</strong>, where P is the principal loan amount, r is the monthly interest rate (annual rate divided by 12 and then by 100), and n is the total number of monthly installments.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does a higher tenure mean lower EMI?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Yes, extending your loan tenure reduces the monthly EMI amount. However, you end up paying significantly more in total interest over the longer repayment period. It's a trade-off between monthly affordability and total cost.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I prepay my loan to reduce EMI?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Yes, most lenders allow prepayment (partial or full). Making extra payments toward the principal reduces either your monthly EMI or your remaining tenure, saving you interest. Check with your lender about any prepayment penalties.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What factors affect EMI?
+            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Three main factors: <strong>1)</strong> Loan amount — higher principal means higher EMI. <strong>2)</strong> Interest rate — higher rate increases EMI. <strong>3)</strong> Tenure — longer tenure reduces EMI but increases total interest paid.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <h3>🚀 Explore More Free Tools</h3>
+      <p>NexaGrowth offers a growing collection of free calculators and productivity tools. Try our BMI Calculator, Age Calculator, and more!</p>
+      <div class="cta-actions">
+        <a href="index.html" class="btn-primary">Browse All Tools</a>
+        <a href="bmi-calculator.html" class="btn-secondary">BMI Calculator →</a>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <section class="tool-section">
+      <h2><span class="section-icon">🔗</span> Related Tools</h2>
+      <div class="related-grid">
+        <a href="bmi-calculator.html" class="related-card">
+          <span class="rc-icon">⚖️</span>
+          <h3>BMI Calculator</h3>
+          <p>Calculate your Body Mass Index with visual gauge and personalized health tips.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+        <a href="age-calculator.html" class="related-card">
+          <span class="rc-icon">🎂</span>
+          <h3>Age Calculator</h3>
+          <p>Calculate your exact age in years, months, and days with zodiac sign and birthday countdown.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+        <a href="percentage-calculator.html" class="related-card">
+          <span class="rc-icon">📊</span>
+          <h3>Percentage Calculator</h3>
+          <p>Calculate percentages, percentage changes, and more with our versatile tool.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+        <a href="invoice-generator.html" class="related-card">
+          <span class="rc-icon">🧾</span>
+          <h3>Invoice Generator</h3>
+          <p>Create professional invoices instantly with our free online invoice generator.</p>
+          <span class="rc-arrow">Try it →</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="tool-footer">
+  <div class="container">
+    <p>&copy; 2025 <a href="../index.html">NexaGrowth</a>. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="tools.js"></script>
+<script>
+(function(){
+  let tenureUnit = 'months';
+  let amortData = [];
+  let currentView = 'yearly';
+
+  /* ── Format Currency ── */
+  function fmtCurrency(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+  function fmtCurrencyExact(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  /* ── Slider/Input Sync ── */
+  const loanSlider = document.getElementById('loanAmountSlider');
+  const loanInput = document.getElementById('loanAmount');
+  const loanLabel = document.getElementById('loanAmountVal');
+  const rateSlider = document.getElementById('interestRateSlider');
+  const rateInput = document.getElementById('interestRate');
+  const rateLabel = document.getElementById('interestRateVal');
+  const tenureSlider = document.getElementById('tenureSlider');
+  const tenureInput = document.getElementById('loanTenure');
+  const tenureLabel = document.getElementById('tenureVal');
+
+  function syncLoan(val) {
+    loanSlider.value = val;
+    loanInput.value = val;
+    loanLabel.textContent = fmtCurrency(Number(val));
+  }
+  function syncRate(val) {
+    rateSlider.value = val;
+    rateInput.value = val;
+    rateLabel.textContent = val + '%';
+  }
+  function syncTenure(val) {
+    const months = Number(val);
+    tenureSlider.value = months;
+    tenureInput.value = tenureUnit === 'years' ? Math.round(months / 12) : months;
+    if (tenureUnit === 'years') {
+      const y = Math.round(months / 12);
+      tenureLabel.textContent = y + (y === 1 ? ' Year' : ' Years');
+    } else {
+      tenureLabel.textContent = months + (months === 1 ? ' Month' : ' Months');
+    }
+  }
+
+  loanSlider.addEventListener('input', () => syncLoan(loanSlider.value));
+  loanInput.addEventListener('input', () => syncLoan(loanInput.value));
+  rateSlider.addEventListener('input', () => syncRate(rateSlider.value));
+  rateInput.addEventListener('input', () => syncRate(rateInput.value));
+  tenureSlider.addEventListener('input', () => syncTenure(tenureSlider.value));
+  tenureInput.addEventListener('input', () => {
+    const v = Number(tenureInput.value);
+    const months = tenureUnit === 'years' ? v * 12 : v;
+    syncTenure(months);
+  });
+
+  /* Tenure toggle */
+  document.querySelectorAll('#tenureToggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#tenureToggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      tenureUnit = btn.dataset.unit;
+      const currentMonths = Number(tenureSlider.value);
+      if (tenureUnit === 'years') {
+        tenureSlider.min = 12;
+        tenureSlider.step = 12;
+        tenureInput.value = Math.round(currentMonths / 12);
+      } else {
+        tenureSlider.min = 1;
+        tenureSlider.step = 1;
+        tenureInput.value = currentMonths;
+      }
+      syncTenure(currentMonths);
+    });
+  });
+
+  /* ── Draw Pie Chart ── */
+  function drawPieChart(principal, interest) {
+    const canvas = document.getElementById('emiChart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const size = 280;
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, size, size);
+
+    const total = principal + interest;
+    const cx = size / 2, cy = size / 2, r = 110;
+    const innerR = 70;
+
+    /* Principal slice */
+    const principalAngle = (principal / total) * 2 * Math.PI;
+    const startAngle = -Math.PI / 2;
+
+    /* Draw principal */
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(startAngle) * innerR, cy + Math.sin(startAngle) * innerR);
+    ctx.arc(cx, cy, r, startAngle, startAngle + principalAngle, false);
+    ctx.arc(cx, cy, innerR, startAngle + principalAngle, startAngle, true);
+    ctx.closePath();
+    const grad1 = ctx.createLinearGradient(0, 0, size, size);
+    grad1.addColorStop(0, '#8b5cf6');
+    grad1.addColorStop(1, '#a78bfa');
+    ctx.fillStyle = grad1;
+    ctx.shadowColor = 'rgba(139,92,246,0.3)';
+    ctx.shadowBlur = 20;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    /* Draw interest */
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(startAngle + principalAngle) * innerR, cy + Math.sin(startAngle + principalAngle) * innerR);
+    ctx.arc(cx, cy, r, startAngle + principalAngle, startAngle + 2 * Math.PI, false);
+    ctx.arc(cx, cy, innerR, startAngle + 2 * Math.PI, startAngle + principalAngle, true);
+    ctx.closePath();
+    const grad2 = ctx.createLinearGradient(0, 0, size, size);
+    grad2.addColorStop(0, '#f59e0b');
+    grad2.addColorStop(1, '#fbbf24');
+    ctx.fillStyle = grad2;
+    ctx.shadowColor = 'rgba(245,158,11,0.3)';
+    ctx.shadowBlur = 20;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    /* Segment borders */
+    ctx.strokeStyle = 'rgba(6,6,8,0.5)';
+    ctx.lineWidth = 2;
+    function drawSegLine(angle) {
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(angle) * innerR, cy + Math.sin(angle) * innerR);
+      ctx.lineTo(cx + Math.cos(angle) * r, cy + Math.sin(angle) * r);
+      ctx.stroke();
+    }
+    drawSegLine(startAngle);
+    drawSegLine(startAngle + principalAngle);
+
+    /* Center text */
+    const pct = ((principal / total) * 100).toFixed(0);
+    ctx.fillStyle = '#f0eefb';
+    ctx.font = '800 22px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(pct + '%', cx, cy - 8);
+    ctx.font = '500 11px Inter, sans-serif';
+    ctx.fillStyle = '#9490b0';
+    ctx.fillText('Principal', cx, cy + 14);
+  }
+
+  /* ── Calculate EMI ── */
+  window.calculateEMI = function() {
+    const P = parseFloat(loanInput.value);
+    const annualRate = parseFloat(rateInput.value);
+    const totalMonths = parseInt(tenureSlider.value);
+
+    if (!P || P <= 0) { showToast('Please enter a valid loan amount.'); return; }
+    if (!annualRate || annualRate <= 0) { showToast('Please enter a valid interest rate.'); return; }
+    if (!totalMonths || totalMonths <= 0) { showToast('Please enter a valid tenure.'); return; }
+
+    const r = annualRate / 12 / 100;
+    const n = totalMonths;
+    const emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    const totalPayment = emi * n;
+    const totalInterest = totalPayment - P;
+
+    document.getElementById('emiResults').style.display = 'block';
+    document.getElementById('monthlyEMI').textContent = fmtCurrencyExact(emi);
+    document.getElementById('totalInterest').textContent = fmtCurrency(totalInterest);
+    document.getElementById('totalPayment').textContent = fmtCurrency(totalPayment);
+    document.getElementById('ratioDisplay').textContent = (totalInterest / P * 100).toFixed(1) + '%';
+
+    drawPieChart(P, totalInterest);
+
+    /* Build amortization data */
+    amortData = [];
+    let balance = P;
+    for (let m = 1; m <= n; m++) {
+      const interestPart = balance * r;
+      const principalPart = emi - interestPart;
+      balance = Math.max(0, balance - principalPart);
+      amortData.push({
+        month: m,
+        principal: principalPart,
+        interest: interestPart,
+        total: emi,
+        balance: balance
+      });
+    }
+
+    renderAmortization(currentView);
+    document.getElementById('emiResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  /* ── Render Amortization ── */
+  function renderAmortization(view) {
+    const tbody = document.getElementById('amortBody');
+    const thead = document.querySelector('#amortTable thead tr');
+    tbody.innerHTML = '';
+
+    if (view === 'yearly') {
+      thead.innerHTML = '<th>Year</th><th>Principal</th><th>Interest</th><th>Total Payment</th><th>End Balance</th>';
+      const years = {};
+      amortData.forEach(row => {
+        const y = Math.ceil(row.month / 12);
+        if (!years[y]) years[y] = { principal: 0, interest: 0, total: 0, balance: 0 };
+        years[y].principal += row.principal;
+        years[y].interest += row.interest;
+        years[y].total += row.total;
+        years[y].balance = row.balance;
+      });
+      Object.keys(years).forEach(y => {
+        const d = years[y];
+        tbody.innerHTML += `<tr>
+          <td class="highlight">${y}</td>
+          <td>${fmtCurrency(d.principal)}</td>
+          <td>${fmtCurrency(d.interest)}</td>
+          <td>${fmtCurrency(d.total)}</td>
+          <td>${fmtCurrency(d.balance)}</td>
+        </tr>`;
+      });
+    } else {
+      thead.innerHTML = '<th>Month</th><th>Principal</th><th>Interest</th><th>EMI</th><th>Balance</th>';
+      amortData.forEach(row => {
+        tbody.innerHTML += `<tr>
+          <td class="highlight">${row.month}</td>
+          <td>${fmtCurrencyExact(row.principal)}</td>
+          <td>${fmtCurrencyExact(row.interest)}</td>
+          <td>${fmtCurrencyExact(row.total)}</td>
+          <td>${fmtCurrencyExact(row.balance)}</td>
+        </tr>`;
+      });
+    }
+  }
+
+  window.switchAmortView = function(view) {
+    currentView = view;
+    document.querySelectorAll('.amort-view-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === view);
+      if (b.dataset.view === view) {
+        b.style.background = 'rgba(139,92,246,.2)';
+        b.style.color = '#8b5cf6';
+        b.style.borderColor = 'rgba(139,92,246,.4)';
+      } else {
+        b.style.background = '';
+        b.style.color = '';
+        b.style.borderColor = '';
+      }
+    });
+    renderAmortization(view);
+  };
+
+  /* ── Copy Amortization ── */
+  window.copyAmortization = function() {
+    const table = document.getElementById('amortTable');
+    const rows = table.querySelectorAll('tr');
+    let text = '';
+    rows.forEach(r => {
+      const cells = r.querySelectorAll('th, td');
+      text += [...cells].map(c => c.textContent.trim()).join('\t') + '\n';
+    });
+    copyToClipboard(text);
+  };
+
+  /* ── Reset ── */
+  window.resetEMI = function() {
+    syncLoan(500000);
+    syncRate(8.5);
+    syncTenure(240);
+    document.getElementById('emiResults').style.display = 'none';
+    amortData = [];
+    showToast('Calculator reset!');
+  };
+
+  /* Enter key support */
+  document.querySelectorAll('.emi-calculator input[type="number"]').forEach(inp => {
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') calculateEMI(); });
+  });
+
+  /* Initialize labels */
+  syncLoan(500000);
+  syncRate(8.5);
+  syncTenure(240);
+})();
+</script>
+</body>
+</html>

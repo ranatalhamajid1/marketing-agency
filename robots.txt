@@ -3,7 +3,7 @@
 # https://nexagrowth.xyz
 # =====================================================
 
-# Allow AdSense Bot Explicity (Crucial for Review)
+# Allow AdSense Bot Explicitly (Crucial for Review)
 User-agent: Mediapartners-Google
 Allow: /
 

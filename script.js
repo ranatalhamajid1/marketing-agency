@@ -754,3 +754,27 @@ if (matchMedia('(prefers-reduced-motion:reduce)').matches) {
   if (acceptBtn) acceptBtn.addEventListener('click', () => hideBanner('accepted'));
   if (rejectBtn) rejectBtn.addEventListener('click', () => hideBanner('essential'));
 })();
+
+/* ════════════════════════════════════════
+   FAQ ACCORDION (Homepage)
+════════════════════════════════════════ */
+(function HomeFAQ() {
+  $$('.faq-q-home').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item-home');
+      const wasOpen = item.classList.contains('open');
+      // Close all items
+      $$('.faq-item-home').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q-home')?.setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-a-home')?.setAttribute('aria-hidden', 'true');
+      });
+      // Toggle clicked item
+      if (!wasOpen) {
+        item.classList.add('open');
+        q.setAttribute('aria-expanded', 'true');
+        item.querySelector('.faq-a-home')?.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
+})();

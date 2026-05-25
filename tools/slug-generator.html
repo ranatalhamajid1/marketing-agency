@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Free Slug Generator — Create SEO-Friendly URL Slugs | NexaGrowth</title>
+  <meta name="description" content="Convert any text into clean, SEO-friendly URL slugs instantly. Customize separator, case, and max length. Free online slug generator tool."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/slug-generator.html"/>
+  <meta property="og:type" content="website"/><meta property="og:url" content="https://nexagrowth.xyz/tools/slug-generator.html"/>
+  <meta property="og:title" content="Free Slug Generator | NexaGrowth Tools"/>
+  <meta property="og:description" content="Convert any text into SEO-friendly URL slugs. Customize separator, case, and length."/>
+  <meta property="og:image" content="https://nexagrowth.xyz/og-image.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Slug Generator","url":"https://nexagrowth.xyz/tools/slug-generator.html","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"NexaGrowth"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a URL slug?","acceptedAnswer":{"@type":"Answer","text":"A URL slug is the part of a web address that identifies a page in human-readable form, like 'my-blog-post' in example.com/my-blog-post."}},{"@type":"Question","name":"Why are SEO-friendly slugs important?","acceptedAnswer":{"@type":"Answer","text":"Clean slugs help search engines understand your content, improve click-through rates, and make URLs easier to share and remember."}},{"@type":"Question","name":"What characters are removed from slugs?","acceptedAnswer":{"@type":"Answer","text":"Special characters, punctuation, extra spaces, and non-alphanumeric characters are removed. Only letters, numbers, and the chosen separator remain."}}]}</script>
+  <link rel="icon" type="image/png" href="../logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="tools.css"/>
+</head>
+<body>
+<div class="tool-page">
+  <nav class="tool-nav" role="navigation"><div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36" loading="lazy"/><span class="nav-brand">Nexa<em>Growth</em></span></a>
+    <div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+    <a href="../index.html#contact" class="nav-cta">Free Consultation</a>
+    <button class="nav-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div><div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div></nav>
+
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Slug Generator</span></nav>
+
+    <div class="tool-hero">
+      <div class="tool-icon">🔗</div>
+      <h1>Free <em>Slug Generator</em></h1>
+      <p>Convert any text into clean, SEO-friendly URL slugs instantly. Perfect for blog posts, pages, and product URLs.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-grid">
+        <div>
+          <div class="tool-label"><span>Enter Your Text</span><span class="char-count" id="char-count">0 characters</span></div>
+          <textarea class="tool-textarea" id="slug-input" placeholder="Paste or type your title, heading, or text here..." rows="4" oninput="generateSlug()"></textarea>
+          <div class="tool-options" style="margin-top:16px">
+            <div class="tool-option">
+              <label for="slug-sep">Separator</label>
+              <select id="slug-sep" class="tool-select" onchange="generateSlug()">
+                <option value="-" selected>Hyphen (-)</option>
+                <option value="_">Underscore (_)</option>
+                <option value="">No separator</option>
+              </select>
+            </div>
+            <div class="tool-option">
+              <label for="slug-max">Max Length</label>
+              <input type="number" id="slug-max" value="0" min="0" max="200" placeholder="0 = unlimited" onchange="generateSlug()"/>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <label class="tool-toggle"><input type="checkbox" id="slug-lower" checked onchange="generateSlug()"/><span class="toggle-track"></span>Force lowercase</label>
+          </div>
+        </div>
+        <div>
+          <div class="tool-label"><span>Generated Slug</span></div>
+          <div class="tool-output" id="slug-output" style="min-height:60px"><span class="tool-output-empty">Your slug will appear here...</span></div>
+          <div class="tool-label" style="margin-top:12px"><span>Full URL Preview</span></div>
+          <div class="tool-output" id="slug-preview" style="min-height:40px;font-size:.85rem;color:var(--a)"><span class="tool-output-empty">https://example.com/your-slug</span></div>
+          <div class="tool-actions">
+            <button class="btn-primary" onclick="copyToClipboard(document.getElementById('slug-output').textContent, this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Slug</button>
+            <button class="btn-secondary" onclick="document.getElementById('slug-input').value='';generateSlug()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+      <ul>
+        <li>Type or paste your page title, blog heading, or any text into the input area</li>
+        <li>The slug is generated automatically in real-time as you type</li>
+        <li>Choose your separator: hyphens (recommended for SEO), underscores, or none</li>
+        <li>Set a max length if you want shorter slugs (0 = unlimited)</li>
+        <li>Toggle "Force lowercase" for cleaner, SEO-friendly slugs</li>
+        <li>Click "Copy Slug" to copy the result to your clipboard</li>
+      </ul>
+      <p><strong>SEO Tip:</strong> Google recommends keeping URLs short, descriptive, and using hyphens as word separators. Read our <a href="../blog/beginner-seo-guide.html" style="color:var(--a)">complete SEO guide</a> for more optimization tips.</p>
+    </section>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q">What is a URL slug?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">A URL slug is the human-readable part of a web address that comes after the domain name. For example, in <code>nexagrowth.xyz/blog/seo-tips</code>, the slug is <code>seo-tips</code>. Good slugs help both users and search engines understand what a page is about.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Why are hyphens better than underscores for SEO?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Google treats hyphens as word separators but treats underscores as word joiners. So <code>seo-tips</code> is read as "seo" and "tips", while <code>seo_tips</code> would be read as "seotips". Always use hyphens for better search engine understanding.</div></div></div>
+        <div class="faq-item"><div class="faq-q">How long should a URL slug be?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Aim for 3-5 words (under 60 characters). Shorter slugs are easier to share, remember, and display in search results. Remove filler words like "the", "and", "a" to keep slugs concise.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Does this tool handle non-English characters?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Yes. Non-ASCII characters and diacritics are removed or transliterated to create clean, universally compatible URL slugs that work across all browsers and servers.</div></div></div>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">🛠️</span> Related Tools</h2>
+      <div class="related-grid">
+        <a href="meta-tag-generator.html" class="related-card"><span class="rc-icon">🏷️</span><h3>Meta Tag Generator</h3><p>Generate SEO meta tags for your website.</p><span class="rc-arrow">Use Tool →</span></a>
+        <a href="word-counter.html" class="related-card"><span class="rc-icon">📝</span><h3>Word Counter</h3><p>Count words, characters, and reading time.</p><span class="rc-arrow">Use Tool →</span></a>
+        <a href="case-converter.html" class="related-card"><span class="rc-icon">🔤</span><h3>Case Converter</h3><p>Convert text between different cases.</p><span class="rc-arrow">Use Tool →</span></a>
+      </div>
+    </section>
+
+    <div class="cta-box"><h3>Explore All NexaGrowth Tools</h3><p>50+ free online tools for SEO, AI, text, development, and more.</p><div class="cta-actions"><a href="index.html" class="btn-primary">Browse All Tools</a><a href="../blog/index.html" class="btn-secondary">Read Our Blog</a></div></div>
+  </div></main>
+
+  <footer class="tool-footer"><div class="container"><p>© 2026 NexaGrowth. All rights reserved.</p><div class="footer-links"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div></div></footer>
+</div>
+<script src="tools.js"></script>
+<script>
+function generateSlug(){
+  const input=document.getElementById('slug-input').value;
+  const sep=document.getElementById('slug-sep').value;
+  const maxLen=parseInt(document.getElementById('slug-max').value)||0;
+  const lower=document.getElementById('slug-lower').checked;
+  document.getElementById('char-count').textContent=input.length+' characters';
+  if(!input.trim()){
+    document.getElementById('slug-output').innerHTML='<span class="tool-output-empty">Your slug will appear here...</span>';
+    document.getElementById('slug-preview').innerHTML='<span class="tool-output-empty">https://example.com/your-slug</span>';
+    return;
+  }
+  let slug=input.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  if(lower) slug=slug.toLowerCase();
+  slug=slug.replace(/[^a-zA-Z0-9\s-]/g,'').replace(/\s+/g,sep||'').replace(new RegExp('['+sep+']+','g'),sep).replace(new RegExp('^['+sep+']+|['+sep+']+$','g'),'');
+  if(maxLen>0&&slug.length>maxLen){
+    slug=slug.substring(0,maxLen);
+    if(sep) slug=slug.replace(new RegExp('['+sep+']+$'),'');
+  }
+  document.getElementById('slug-output').textContent=slug;
+  document.getElementById('slug-preview').textContent='https://example.com/'+slug;
+}
+</script>
+</body>
+</html>

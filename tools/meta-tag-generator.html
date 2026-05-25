@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meta Tag Generator — Create SEO Meta Tags, OG &amp; Twitter Cards | NexaGrowth</title>
+  <meta name="description" content="Free meta tag generator tool. Create complete HTML meta tags including Open Graph, Twitter Cards, and SEO tags for your website — just fill in the form and copy the code.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/meta-tag-generator.html">
+
+  <!-- OG -->
+  <meta property="og:title" content="Meta Tag Generator — Create SEO Meta Tags, OG & Twitter Cards | NexaGrowth">
+  <meta property="og:description" content="Generate complete HTML meta tags including Open Graph and Twitter Cards for your web pages.">
+  <meta property="og:url" content="https://nexagrowth.xyz/tools/meta-tag-generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nexagrowth.xyz/og/meta-tag-generator.png">
+  <meta property="og:site_name" content="NexaGrowth">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meta Tag Generator — NexaGrowth Tools">
+  <meta name="twitter:description" content="Generate complete SEO meta tags including OG and Twitter cards instantly.">
+  <meta name="twitter:image" content="https://nexagrowth.xyz/og/meta-tag-generator.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tools.css">
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Meta Tag Generator",
+    "url": "https://nexagrowth.xyz/tools/meta-tag-generator.html",
+    "description": "Free meta tag generator tool. Create complete HTML meta tags including Open Graph, Twitter Cards, and SEO tags.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "NexaGrowth", "url": "https://nexagrowth.xyz" }
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are meta tags and why are they important?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Meta tags are HTML elements placed in the <head> of a page. They tell search engines and social media platforms about your page's title, description, and content. Good meta tags improve SEO rankings and how your links appear when shared on social media." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Open Graph (OG) tags?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open Graph tags control how your page looks when shared on platforms like Facebook, LinkedIn, and messaging apps. They define the title, description, and image that appear in the link preview." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Twitter Card tags?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Twitter Card meta tags control how your links look when shared on Twitter/X. They allow you to show rich previews with titles, descriptions, and images." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I paste the generated meta tags?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Copy the generated code and paste it inside the <head> section of your HTML page, ideally right after the <meta charset> and <meta viewport> tags." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a canonical URL?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A canonical URL tells search engines which version of a page is the 'master' copy. This prevents duplicate content issues when the same page is accessible at multiple URLs." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+
+  <style>
+    .input-group{margin-bottom:18px;position:relative;z-index:1}
+    .input-group label{display:block;font-size:.78rem;font-weight:700;color:var(--tx2);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+    .input-group small{display:block;color:var(--tx3);font-size:.75rem;margin-top:4px}
+    .meta-output{background:var(--bg1);border:1.5px solid var(--brd);border-radius:var(--r);padding:20px;font-family:'Courier New',Courier,monospace;font-size:.82rem;color:#a78bfa;line-height:1.8;white-space:pre-wrap;word-break:break-all;min-height:200px;max-height:500px;overflow-y:auto;position:relative;z-index:1}
+    .meta-output .tag-name{color:#06b6d4}
+    .meta-output .tag-attr{color:#f59e0b}
+    .meta-output .tag-val{color:#a78bfa}
+    .preview-card{background:var(--bg2);border:1.5px solid var(--brd);border-radius:var(--r);overflow:hidden;margin-top:20px;position:relative;z-index:1}
+    .preview-card-img{width:100%;height:160px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--tx3);font-size:.85rem}
+    .preview-card-img img{width:100%;height:100%;object-fit:cover}
+    .preview-card-body{padding:16px}
+    .preview-card-body .pc-url{font-size:.72rem;color:var(--tx3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+    .preview-card-body .pc-title{font-size:.95rem;font-weight:700;color:var(--a);margin-bottom:6px;line-height:1.3}
+    .preview-card-body .pc-desc{font-size:.82rem;color:var(--tx2);line-height:1.5}
+  </style>
+</head>
+<body class="tool-page">
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="tool-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36">
+        <span class="nav-brand">Nexa<em>Growth</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html" class="active">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Tools</a>
+    <a href="../blog/index.html">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="tool-main">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">›</span>
+        <a href="index.html">Tools</a><span class="sep">›</span>
+        <span class="current">Meta Tag Generator</span>
+      </nav>
+
+      <!-- Hero -->
+      <div class="tool-hero">
+        <div class="tool-icon">🏷️</div>
+        <h1>Meta Tag <em>Generator</em></h1>
+        <p>Generate complete SEO meta tags including Open Graph and Twitter Card tags — just fill in the form and copy the code.</p>
+      </div>
+
+      <!-- Tool Card -->
+      <div class="tool-card">
+        <div class="tool-grid">
+          <!-- LEFT: Inputs -->
+          <div>
+            <div class="input-group">
+              <label for="metaTitle">Page Title</label>
+              <input type="text" class="tool-input" id="metaTitle" placeholder="e.g., My Awesome Page — Brand Name" maxlength="70">
+              <small><span id="titleCount">0</span>/70 characters</small>
+            </div>
+
+            <div class="input-group">
+              <label for="metaDesc">Meta Description</label>
+              <textarea class="tool-textarea" id="metaDesc" rows="3" placeholder="A compelling description of your page in 150-160 characters…" maxlength="160" style="min-height:80px"></textarea>
+              <small><span id="descCount">0</span>/160 characters</small>
+            </div>
+
+            <div class="input-group">
+              <label for="metaKeywords">Keywords</label>
+              <input type="text" class="tool-input" id="metaKeywords" placeholder="e.g., seo, marketing, tools, growth">
+              <small>Comma-separated keywords</small>
+            </div>
+
+            <div class="input-group">
+              <label for="metaAuthor">Author</label>
+              <input type="text" class="tool-input" id="metaAuthor" placeholder="e.g., NexaGrowth">
+            </div>
+
+            <div class="input-group">
+              <label for="metaCanonical">Canonical URL</label>
+              <input type="url" class="tool-input" id="metaCanonical" placeholder="https://example.com/page">
+            </div>
+
+            <div class="input-group">
+              <label for="metaOGImage">OG Image URL</label>
+              <input type="url" class="tool-input" id="metaOGImage" placeholder="https://example.com/og-image.png">
+              <small>Recommended: 1200×630px</small>
+            </div>
+          </div>
+
+          <!-- RIGHT: Output -->
+          <div>
+            <div class="tool-label"><span>Generated Meta Tags</span></div>
+            <div class="meta-output" id="metaOutput"><!-- Generated code will appear here --></div>
+            <div class="tool-actions">
+              <button class="btn-primary" id="copyMetaBtn" onclick="copyToClipboard(document.getElementById('metaOutput').textContent, this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Code
+              </button>
+              <button class="btn-secondary" onclick="resetMeta()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset
+              </button>
+            </div>
+
+            <!-- Social Preview -->
+            <div class="tool-label" style="margin-top:24px"><span>Social Preview</span></div>
+            <div class="preview-card" id="socialPreview">
+              <div class="preview-card-img" id="previewImg">
+                <span>No image provided</span>
+              </div>
+              <div class="preview-card-body">
+                <div class="pc-url" id="previewUrl">example.com</div>
+                <div class="pc-title" id="previewTitle">Page Title</div>
+                <div class="pc-desc" id="previewDesc">Page description will appear here…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Use -->
+      <section class="tool-section">
+        <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+        <p>The Meta Tag Generator creates SEO-friendly meta tags for your web pages. Here's how to use it effectively:</p>
+        <ul>
+          <li><strong>Page Title:</strong> Enter your page title (50-60 characters recommended). This is displayed in search results and browser tabs.</li>
+          <li><strong>Meta Description:</strong> Write a compelling description (150-160 characters). This shows below the title in search results.</li>
+          <li><strong>Keywords:</strong> Add relevant keywords separated by commas. While less important for Google, some search engines still use them.</li>
+          <li><strong>Author:</strong> Your name or brand name for attribution.</li>
+          <li><strong>Canonical URL:</strong> The main URL of the page to prevent duplicate content issues.</li>
+          <li><strong>OG Image:</strong> An image URL for social media previews (recommended: 1200×630 pixels).</li>
+          <li><strong>Copy &amp; Paste:</strong> Click "Copy Code" and paste the generated tags into the &lt;head&gt; section of your HTML.</li>
+        </ul>
+      </section>
+
+      <!-- FAQ -->
+      <section class="tool-section">
+        <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">
+              What are meta tags and why are they important?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Meta tags are HTML elements placed in the &lt;head&gt; of a page. They tell search engines and social media platforms about your page's title, description, and content. Good meta tags improve SEO rankings and how your links appear when shared on social media.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              What are Open Graph (OG) tags?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Open Graph tags control how your page looks when shared on platforms like Facebook, LinkedIn, and messaging apps. They define the title, description, and image that appear in the link preview.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              What are Twitter Card tags?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Twitter Card meta tags control how your links look when shared on Twitter/X. They allow you to show rich previews with titles, descriptions, and images alongside your tweet.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              Where do I paste the generated meta tags?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">Copy the generated code and paste it inside the &lt;head&gt; section of your HTML page, ideally right after the &lt;meta charset&gt; and &lt;meta viewport&gt; tags.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              What is a canonical URL?
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a"><div class="faq-a-inner">A canonical URL tells search engines which version of a page is the "master" copy. This prevents duplicate content issues when the same page is accessible at multiple URLs.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Tools -->
+      <section class="tool-section">
+        <h2><span class="section-icon">🔗</span> Related Tools</h2>
+        <div class="related-grid">
+          <a href="slug-generator.html" class="related-card">
+            <span class="rc-icon">🔗</span>
+            <h3>Slug Generator</h3>
+            <p>Create clean, URL-friendly slugs from any text.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="word-counter.html" class="related-card">
+            <span class="rc-icon">📝</span>
+            <h3>Word Counter</h3>
+            <p>Count words, characters, sentences and reading time.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="ai-caption-generator.html" class="related-card">
+            <span class="rc-icon">✨</span>
+            <h3>AI Caption Generator</h3>
+            <p>Generate engaging social media captions with hashtags.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+          <a href="case-converter.html" class="related-card">
+            <span class="rc-icon">🔠</span>
+            <h3>Case Converter</h3>
+            <p>Convert text between UPPERCASE, lowercase, Title Case and more.</p>
+            <span class="rc-arrow">Use Tool →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h3>Explore More Free Tools</h3>
+        <p>NexaGrowth offers a growing collection of free marketing and productivity tools designed for creators, marketers, and developers.</p>
+        <div class="cta-actions">
+          <a href="index.html" class="btn-primary">Browse All Tools</a>
+          <button class="btn-secondary" onclick="shareTool('Meta Tag Generator — NexaGrowth')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share This Tool
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="tool-footer">
+    <div class="container">
+      <p>&copy; 2025 NexaGrowth. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tools.js"></script>
+  <script>
+  (function MetaTagGenTool() {
+    const title = document.getElementById('metaTitle');
+    const desc = document.getElementById('metaDesc');
+    const keywords = document.getElementById('metaKeywords');
+    const author = document.getElementById('metaAuthor');
+    const canonical = document.getElementById('metaCanonical');
+    const ogImage = document.getElementById('metaOGImage');
+    const output = document.getElementById('metaOutput');
+    const titleCount = document.getElementById('titleCount');
+    const descCount = document.getElementById('descCount');
+
+    // Preview elements
+    const previewImg = document.getElementById('previewImg');
+    const previewUrl = document.getElementById('previewUrl');
+    const previewTitle = document.getElementById('previewTitle');
+    const previewDesc = document.getElementById('previewDesc');
+
+    function escAttr(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    function generate() {
+      const t = title.value.trim();
+      const d = desc.value.trim();
+      const k = keywords.value.trim();
+      const a = author.value.trim();
+      const c = canonical.value.trim();
+      const img = ogImage.value.trim();
+
+      // Update counters
+      titleCount.textContent = title.value.length;
+      descCount.textContent = desc.value.length;
+
+      // Build meta tags
+      let lines = [];
+      lines.push('<!-- Primary Meta Tags -->');
+      if (t) lines.push('<title>' + escAttr(t) + '</title>');
+      if (t) lines.push('<meta name="title" content="' + escAttr(t) + '">');
+      if (d) lines.push('<meta name="description" content="' + escAttr(d) + '">');
+      if (k) lines.push('<meta name="keywords" content="' + escAttr(k) + '">');
+      if (a) lines.push('<meta name="author" content="' + escAttr(a) + '">');
+      if (c) lines.push('<link rel="canonical" href="' + escAttr(c) + '">');
+
+      lines.push('');
+      lines.push('<!-- Open Graph / Facebook -->');
+      lines.push('<meta property="og:type" content="website">');
+      if (c) lines.push('<meta property="og:url" content="' + escAttr(c) + '">');
+      if (t) lines.push('<meta property="og:title" content="' + escAttr(t) + '">');
+      if (d) lines.push('<meta property="og:description" content="' + escAttr(d) + '">');
+      if (img) lines.push('<meta property="og:image" content="' + escAttr(img) + '">');
+
+      lines.push('');
+      lines.push('<!-- Twitter -->');
+      lines.push('<meta name="twitter:card" content="summary_large_image">');
+      if (c) lines.push('<meta name="twitter:url" content="' + escAttr(c) + '">');
+      if (t) lines.push('<meta name="twitter:title" content="' + escAttr(t) + '">');
+      if (d) lines.push('<meta name="twitter:description" content="' + escAttr(d) + '">');
+      if (img) lines.push('<meta name="twitter:image" content="' + escAttr(img) + '">');
+
+      output.textContent = lines.join('\n');
+
+      // Update social preview
+      previewTitle.textContent = t || 'Page Title';
+      previewDesc.textContent = d || 'Page description will appear here…';
+
+      if (c) {
+        try {
+          const url = new URL(c);
+          previewUrl.textContent = url.hostname;
+        } catch(e) {
+          previewUrl.textContent = c;
+        }
+      } else {
+        previewUrl.textContent = 'example.com';
+      }
+
+      if (img) {
+        previewImg.innerHTML = '<img src="' + escAttr(img) + '" alt="OG preview" onerror="this.parentElement.innerHTML=\'<span>Image failed to load</span>\'">';
+      } else {
+        previewImg.innerHTML = '<span>No image provided</span>';
+      }
+    }
+
+    // Listen to all inputs
+    [title, desc, keywords, author, canonical, ogImage].forEach(el => {
+      el.addEventListener('input', generate);
+    });
+
+    // Initial render
+    generate();
+
+    // Reset function
+    window.resetMeta = function() {
+      [title, desc, keywords, author, canonical, ogImage].forEach(el => el.value = '');
+      generate();
+    };
+  })();
+  </script>
+</body>
+</html>

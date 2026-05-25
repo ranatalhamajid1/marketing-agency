@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Free QR Code Generator — Create & Download QR Codes | NexaGrowth</title>
+  <meta name="description" content="Generate QR codes for URLs, text, Wi-Fi, or any data. Download as PNG instantly. Free, no signup, works on mobile."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/qr-code-generator.html"/>
+  <meta property="og:type" content="website"/><meta property="og:url" content="https://nexagrowth.xyz/tools/qr-code-generator.html"/>
+  <meta property="og:title" content="Free QR Code Generator | NexaGrowth Tools"/>
+  <meta property="og:description" content="Generate QR codes for any URL or text. Download as PNG instantly."/>
+  <meta property="og:image" content="https://nexagrowth.xyz/og-image.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Generator","url":"https://nexagrowth.xyz/tools/qr-code-generator.html","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"NexaGrowth"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a QR code?","acceptedAnswer":{"@type":"Answer","text":"A QR (Quick Response) code is a two-dimensional barcode that can store data like URLs, text, or contact info and be scanned by smartphone cameras."}},{"@type":"Question","name":"Can I use these QR codes commercially?","acceptedAnswer":{"@type":"Answer","text":"Yes, all generated QR codes are free for personal and commercial use."}},{"@type":"Question","name":"What data can I encode?","acceptedAnswer":{"@type":"Answer","text":"You can encode URLs, plain text, email addresses, phone numbers, Wi-Fi credentials, and more."}}]}</script>
+  <link rel="icon" type="image/png" href="../logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="tools.css"/>
+</head>
+<body>
+<div class="tool-page">
+  <nav class="tool-nav" role="navigation"><div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36" loading="lazy"/><span class="nav-brand">Nexa<em>Growth</em></span></a>
+    <div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+    <a href="../index.html#contact" class="nav-cta">Free Consultation</a>
+    <button class="nav-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div><div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div></nav>
+
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">QR Code Generator</span></nav>
+
+    <div class="tool-hero">
+      <div class="tool-icon">📱</div>
+      <h1>Free <em>QR Code Generator</em></h1>
+      <p>Create QR codes for any URL, text, or data. Download as PNG instantly. Customize size and colors. 100% free, no signup required.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-grid">
+        <div>
+          <div class="tool-label"><span>Enter Text or URL</span></div>
+          <textarea class="tool-textarea" id="qr-input" placeholder="Enter a URL (e.g. https://nexagrowth.xyz) or any text..." rows="4">https://nexagrowth.xyz</textarea>
+
+          <div class="tool-options" style="margin-top:16px">
+            <div class="tool-option">
+              <label for="qr-size">QR Size</label>
+              <select id="qr-size" class="tool-select" onchange="generateQR()">
+                <option value="200">Small (200px)</option>
+                <option value="300" selected>Medium (300px)</option>
+                <option value="400">Large (400px)</option>
+                <option value="600">XL (600px)</option>
+              </select>
+            </div>
+            <div class="tool-option">
+              <label for="qr-fg">QR Color</label>
+              <input type="color" id="qr-fg" value="#f0eefb" onchange="generateQR()" style="height:42px;border-radius:10px;cursor:pointer"/>
+            </div>
+            <div class="tool-option">
+              <label for="qr-bg">Background</label>
+              <input type="color" id="qr-bg" value="#111119" onchange="generateQR()" style="height:42px;border-radius:10px;cursor:pointer"/>
+            </div>
+          </div>
+
+          <div class="tool-actions" style="margin-top:20px">
+            <button class="btn-primary" onclick="generateQR()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Generate QR Code</button>
+            <button class="btn-secondary" onclick="downloadQR()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PNG</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px">
+          <div style="background:var(--bg2);border:2px solid var(--brd);border-radius:20px;padding:24px;display:flex;align-items:center;justify-content:center;min-height:300px">
+            <canvas id="qr-canvas" style="image-rendering:pixelated"></canvas>
+          </div>
+          <p style="color:var(--tx3);font-size:.8rem;text-align:center">Scan with any smartphone camera or QR reader app</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">📖</span> How to Use This Tool</h2>
+      <ul>
+        <li>Enter any URL, text, email, phone number, or message in the input area</li>
+        <li>Choose your preferred QR code size (200px to 600px)</li>
+        <li>Customize the QR code and background colors to match your brand</li>
+        <li>Click "Generate QR Code" to create your code</li>
+        <li>Click "Download PNG" to save the QR code image to your device</li>
+        <li>Print or share the QR code on business cards, flyers, or digital content</li>
+      </ul>
+    </section>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">❓</span> Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q">What is a QR code?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">A QR (Quick Response) code is a two-dimensional barcode that stores data like URLs, text, or contact information. It can be scanned instantly by any smartphone camera, making it a powerful tool for bridging physical and digital experiences.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Can I customize the QR code colors?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Yes! You can set custom foreground (QR pattern) and background colors using the color pickers. Ensure there's enough contrast between colors for reliable scanning.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Are the QR codes free for commercial use?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">Absolutely! All QR codes generated are free for both personal and commercial use. Print them on business cards, packaging, posters, menus — anywhere you need them.</div></div></div>
+        <div class="faq-item"><div class="faq-q">Do the QR codes expire?<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a"><div class="faq-a-inner">No! QR codes generated by our tool are static — the data is encoded directly into the image. They never expire and will always work as long as the encoded URL or data is valid.</div></div></div>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <h2><span class="section-icon">🛠️</span> Related Tools</h2>
+      <div class="related-grid">
+        <a href="password-generator.html" class="related-card"><span class="rc-icon">🔐</span><h3>Password Generator</h3><p>Generate secure passwords instantly.</p><span class="rc-arrow">Use Tool →</span></a>
+        <a href="color-picker.html" class="related-card"><span class="rc-icon">🎨</span><h3>Color Picker</h3><p>Pick colors and get HEX, RGB, HSL values.</p><span class="rc-arrow">Use Tool →</span></a>
+        <a href="slug-generator.html" class="related-card"><span class="rc-icon">🔗</span><h3>Slug Generator</h3><p>Create SEO-friendly URL slugs.</p><span class="rc-arrow">Use Tool →</span></a>
+      </div>
+    </section>
+
+    <div class="cta-box"><h3>Explore All NexaGrowth Tools</h3><p>50+ free online tools for SEO, AI, text, development, and more.</p><div class="cta-actions"><a href="index.html" class="btn-primary">Browse All Tools</a><a href="../blog/index.html" class="btn-secondary">Read Our Blog</a></div></div>
+  </div></main>
+
+  <footer class="tool-footer"><div class="container"><p>© 2026 NexaGrowth. All rights reserved.</p><div class="footer-links"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div></div></footer>
+</div>
+<script src="tools.js"></script>
+<script>
+// Minimal QR Code generator — Supports alphanumeric encoding, version 1-10
+// Based on the QR code specification with Reed-Solomon error correction
+(function(){
+  // QR Code generation using a compact implementation
+  function QRCode(text,ecl){
+    ecl=ecl||'M';
+    const ECC={L:1,M:0,Q:3,H:2};
+    const ec=ECC[ecl]||0;
+    // Use a simple encoding approach
+    this.modules=[];
+    this.text=text;
+    this.make(text);
+  }
+  // Simplified QR using a deterministic approach
+  const GF256={
+    exp:new Uint8Array(512),
+    log:new Uint8Array(256),
+    init(){
+      let x=1;
+      for(let i=0;i<255;i++){this.exp[i]=x;this.log[x]=i;x<<=1;if(x&256)x^=285;}
+      for(let i=255;i<512;i++)this.exp[i]=this.exp[i-255];
+    },
+    mul(a,b){return a&&b?this.exp[this.log[a]+this.log[b]]:0},
+    poly_mul(p,q){
+      const r=new Uint8Array(p.length+q.length-1);
+      for(let i=0;i<p.length;i++)for(let j=0;j<q.length;j++)r[i+j]^=this.mul(p[i],q[j]);
+      return r;
+    },
+    poly_rest(data,gen){
+      const result=new Uint8Array(data.length+gen.length-1);
+      result.set(data);
+      for(let i=0;i<data.length;i++){
+        if(!result[i])continue;
+        for(let j=0;j<gen.length;j++)result[i+j]^=this.mul(gen[j],result[i]);
+      }
+      return result.slice(data.length);
+    }
+  };
+  GF256.init();
+  
+  function makeQR(text){
+    // Encode as byte mode
+    const data=[];
+    for(let i=0;i<text.length;i++){
+      const c=text.charCodeAt(i);
+      if(c<128)data.push(c);
+      else if(c<2048){data.push(192|(c>>6));data.push(128|(c&63));}
+      else{data.push(224|(c>>12));data.push(128|((c>>6)&63));data.push(128|(c&63));}
+    }
+    // Determine version (1-10) based on data length
+    const caps=[17,32,53,78,106,134,154,192,230,271];
+    let ver=1;
+    for(let i=0;i<caps.length;i++){if(data.length<=caps[i]-2){ver=i+1;break;}if(i===caps.length-1)ver=caps.length;}
+    const size=17+ver*4;
+    const modules=Array.from({length:size},()=>new Uint8Array(size));
+    const reserved=Array.from({length:size},()=>new Uint8Array(size));
+    
+    // Place finder patterns
+    function placeFinder(row,col){
+      for(let r=-1;r<=7;r++)for(let c=-1;c<=7;c++){
+        const rr=row+r,cc=col+c;
+        if(rr<0||rr>=size||cc<0||cc>=size)continue;
+        modules[rr][cc]=((r>=0&&r<=6&&(c===0||c===6))||(c>=0&&c<=6&&(r===0||r===6))||(r>=2&&r<=4&&c>=2&&c<=4))?1:0;
+        reserved[rr][cc]=1;
+      }
+    }
+    placeFinder(0,0);placeFinder(0,size-7);placeFinder(size-7,0);
+    
+    // Timing patterns
+    for(let i=8;i<size-8;i++){
+      if(!reserved[6][i]){modules[6][i]=i%2===0?1:0;reserved[6][i]=1;}
+      if(!reserved[i][6]){modules[i][6]=i%2===0?1:0;reserved[i][6]=1;}
+    }
+    
+    // Dark module
+    modules[size-8][8]=1;reserved[size-8][8]=1;
+    
+    // Reserve format info areas
+    for(let i=0;i<9;i++){if(!reserved[8][i]){reserved[8][i]=1;}if(!reserved[i][8]){reserved[i][8]=1;}}
+    for(let i=0;i<8;i++){if(!reserved[8][size-1-i]){reserved[8][size-1-i]=1;}if(!reserved[size-1-i][8]){reserved[size-1-i][8]=1;}}
+    
+    // Alignment pattern for version >= 2
+    if(ver>=2){
+      const pos=[6,size-7];
+      for(let ri=0;ri<pos.length;ri++)for(let ci=0;ci<pos.length;ci++){
+        if(reserved[pos[ri]][pos[ci]])continue;
+        for(let r=-2;r<=2;r++)for(let c=-2;c<=2;c++){
+          const rr=pos[ri]+r,cc=pos[ci]+c;
+          if(rr<0||rr>=size||cc<0||cc>=size)continue;
+          modules[rr][cc]=(Math.abs(r)===2||Math.abs(c)===2||(!r&&!c))?1:0;
+          reserved[rr][cc]=1;
+        }
+      }
+    }
+    
+    // Encode data
+    const totalBytes=caps[ver-1];
+    const ecBytes=[7,10,13,16,22,28,22,28,36,36][ver-1]||10;
+    const dataBytes=totalBytes-ecBytes;
+    const bits=[];
+    // Mode: byte (0100)
+    bits.push(0,1,0,0);
+    // Character count (8 or 16 bits depending on version)
+    if(ver<=9){for(let i=7;i>=0;i--)bits.push((data.length>>i)&1);}
+    else{for(let i=15;i>=0;i--)bits.push((data.length>>i)&1);}
+    // Data
+    for(const b of data)for(let i=7;i>=0;i--)bits.push((b>>i)&1);
+    // Terminator
+    for(let i=0;i<4&&bits.length<dataBytes*8;i++)bits.push(0);
+    while(bits.length%8)bits.push(0);
+    while(bits.length<dataBytes*8){bits.push(1,1,1,0,1,1,0,0);if(bits.length<dataBytes*8)bits.push(0,0,0,1,0,0,0,1);}
+    bits.length=dataBytes*8;
+    
+    const codewords=[];
+    for(let i=0;i<bits.length;i+=8)codewords.push((bits[i]<<7)|(bits[i+1]<<6)|(bits[i+2]<<5)|(bits[i+3]<<4)|(bits[i+4]<<3)|(bits[i+5]<<2)|(bits[i+6]<<1)|bits[i+7]);
+    
+    // Generate EC codewords
+    let gen=[1];
+    for(let i=0;i<ecBytes;i++)gen=GF256.poly_mul(gen,[1,GF256.exp[i]]);
+    const ec=GF256.poly_rest(new Uint8Array(codewords),gen);
+    const allBytes=[...codewords,...ec];
+    
+    // Place data
+    let bitIdx=0;
+    const allBits=[];
+    for(const b of allBytes)for(let i=7;i>=0;i--)allBits.push((b>>i)&1);
+    
+    let upward=true;
+    for(let col=size-1;col>=1;col-=2){
+      if(col===6)col--;
+      const rows=upward?Array.from({length:size},(_,i)=>size-1-i):Array.from({length:size},(_,i)=>i);
+      for(const row of rows){
+        for(let c=0;c<2;c++){
+          const cc=col-c;
+          if(cc<0||reserved[row][cc])continue;
+          modules[row][cc]=bitIdx<allBits.length?allBits[bitIdx]:0;
+          bitIdx++;
+        }
+      }
+      upward=!upward;
+    }
+    
+    // Apply mask 0 (checkerboard)
+    for(let r=0;r<size;r++)for(let c=0;c<size;c++){
+      if(!reserved[r][c])modules[r][c]^=((r+c)%2===0)?1:0;
+    }
+    
+    // Format info (mask 0, EC level M = 00)
+    const fmtBits=[1,0,1,0,1,0,0,0,0,0,1,0,0,1,0];
+    // Top-left
+    for(let i=0;i<6;i++)modules[8][i]=fmtBits[i];
+    modules[8][7]=fmtBits[6];modules[8][8]=fmtBits[7];modules[7][8]=fmtBits[8];
+    for(let i=0;i<6;i++)modules[5-i][8]=fmtBits[9+i];
+    // Bottom-left and top-right
+    for(let i=0;i<7;i++)modules[size-1-i][8]=fmtBits[i];
+    for(let i=0;i<8;i++)modules[8][size-8+i]=fmtBits[7+i];
+    
+    return modules;
+  }
+  
+  window._makeQR=makeQR;
+})();
+
+function generateQR(){
+  const text=document.getElementById('qr-input').value.trim();
+  if(!text){showToast('Please enter text or a URL');return;}
+  const size=parseInt(document.getElementById('qr-size').value);
+  const fg=document.getElementById('qr-fg').value;
+  const bg=document.getElementById('qr-bg').value;
+  
+  try{
+    const modules=window._makeQR(text);
+    const canvas=document.getElementById('qr-canvas');
+    const qrSize=modules.length;
+    const cellSize=Math.floor(size/qrSize);
+    const totalSize=cellSize*qrSize+8*2;
+    canvas.width=totalSize;canvas.height=totalSize;
+    const ctx=canvas.getContext('2d');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,totalSize,totalSize);
+    ctx.fillStyle=fg;
+    for(let r=0;r<qrSize;r++)for(let c=0;c<qrSize;c++){
+      if(modules[r][c])ctx.fillRect(8+c*cellSize,8+r*cellSize,cellSize,cellSize);
+    }
+  }catch(e){
+    showToast('Error: text may be too long. Try shorter input.');
+    console.error(e);
+  }
+}
+
+function downloadQR(){
+  const canvas=document.getElementById('qr-canvas');
+  if(!canvas.width){showToast('Generate a QR code first');return;}
+  const link=document.createElement('a');
+  link.download='nexagrowth-qrcode.png';
+  link.href=canvas.toDataURL('image/png');
+  link.click();
+  showToast('QR code downloaded!');
+}
+
+generateQR();
+</script>
+</body>
+</html>
