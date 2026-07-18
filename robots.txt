@@ -3,18 +3,10 @@
 # https://nexagrowth.xyz
 # =====================================================
 
-# Allow AdSense Bot Explicitly (Crucial for Review)
-User-agent: Mediapartners-Google
-Allow: /
-
-# Allow all well-behaved crawlers
 User-agent: *
 Allow: /
-
-# Block any sensitive paths
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
 
 # Sitemap location
 Sitemap: https://nexagrowth.xyz/sitemap.xml

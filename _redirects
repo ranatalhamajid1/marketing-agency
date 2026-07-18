@@ -1,0 +1,2 @@
+# Force non-www canonical (Cloudflare Pages)
+https://www.nexagrowth.xyz/* https://nexagrowth.xyz/:splat 301

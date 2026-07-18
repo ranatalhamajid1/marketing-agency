@@ -1,0 +1,750 @@
+[
+  {
+    "relativePath": "404.html",
+    "title": "404 — Page Not Found | NexaGrowth",
+    "description": "No Description",
+    "canonical": "No Canonical",
+    "hasSchema": false,
+    "wordCount": 28,
+    "internalLinksCount": 2,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Lost in the digital growth?"
+    ]
+  },
+  {
+    "relativePath": "about.html",
+    "title": "About Us | Digital Marketing Agency Pakistan",
+    "description": "Meet the team behind NexaGrowth. Founded by Talha, a CS student and web developer turned digital marketer. Learn our story, mission, and what drives us to help Pakistani businesses grow.",
+    "canonical": "https://nexagrowth.xyz/about.html",
+    "hasSchema": true,
+    "wordCount": 807,
+    "internalLinksCount": 16,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "About NexaGrowth"
+    ]
+  },
+  {
+    "relativePath": "blog/beginner-seo-guide.html",
+    "title": "SEO for Beginners: Complete Guide to Ranking on Google 2026 | NexaGrowth",
+    "description": "Learn SEO from scratch with this beginner-friendly guide. Master keywords, on-page SEO, technical SEO, and link building to rank your website on Google in 2026.",
+    "canonical": "https://nexagrowth.xyz/blog/beginner-seo-guide.html",
+    "hasSchema": true,
+    "wordCount": 3077,
+    "internalLinksCount": 22,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 11,
+    "hasCookieConsent": false,
+    "h1s": [
+      "SEO for Beginners: The Complete Guide to Ranking on Google (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/best-ai-tools-students.html",
+    "title": "Best AI Tools for Students in 2026: 15 Free Tools | NexaGrowth",
+    "description": "Discover the 15 best free AI tools for students in 2026. From writing assistants to research helpers, these AI study tools will boost your grades and save hours.",
+    "canonical": "https://nexagrowth.xyz/blog/best-ai-tools-students.html",
+    "hasSchema": true,
+    "wordCount": 2671,
+    "internalLinksCount": 18,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 8,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Best AI Tools for Students in 2026: 15 Free Tools You Need"
+    ]
+  },
+  {
+    "relativePath": "blog/best-digital-marketing-strategies-pakistan-2026.html",
+    "title": "7 Best Digital Marketing Strategies for Pakistani Businesses (2026)",
+    "description": "Complete guide to digital marketing strategies for Pakistani businesses. Learn SEO, Facebook ads, content marketing, and lead generation tactics proven to work in Pakistan's market.",
+    "canonical": "https://nexagrowth.xyz/blog/best-digital-marketing-strategies-pakistan-2026.html",
+    "hasSchema": true,
+    "wordCount": 1858,
+    "internalLinksCount": 17,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 10,
+    "hasCookieConsent": false,
+    "h1s": [
+      "7 Best Digital Marketing Strategies for Pakistani Businesses (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/best-productivity-apps.html",
+    "title": "Best Productivity Apps in 2026: Top 15 Tools to Get More Done",
+    "description": "Discover the 15 best productivity apps in 2026 — from task managers to focus tools. Boost your workflow with Notion, Todoist, Forest, Clockify, and more.",
+    "canonical": "https://nexagrowth.xyz/blog/best-productivity-apps.html",
+    "hasSchema": true,
+    "wordCount": 1220,
+    "internalLinksCount": 21,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Best Productivity Apps in 2026: Top 15 Tools to Get More Done"
+    ]
+  },
+  {
+    "relativePath": "blog/content-marketing-strategy-pakistan.html",
+    "title": "Content Marketing Strategy for Pakistani Businesses (2026) | NexaGrowth",
+    "description": "Learn how to build a content marketing strategy that works for Pakistani businesses. From blog writing to social media content — a complete beginner's guide.",
+    "canonical": "https://nexagrowth.xyz/blog/content-marketing-strategy-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 1833,
+    "internalLinksCount": 16,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 8,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Content Marketing Strategy for Pakistani Businesses: A Beginner's Guide"
+    ]
+  },
+  {
+    "relativePath": "blog/digital-marketing-cost-pakistan.html",
+    "title": "Digital Marketing Cost in Pakistan (2026): Complete Pricing Guide | NexaGrowth",
+    "description": "Wondering how much digital marketing costs in Pakistan? This 2026 guide covers realistic pricing for SEO, Facebook Ads, social media management, content marketing, and web development from Pakistani agencies.",
+    "canonical": "https://nexagrowth.xyz/blog/digital-marketing-cost-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 2282,
+    "internalLinksCount": 24,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 13,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Digital Marketing Cost in Pakistan (2026): A Complete Pricing Guide"
+    ]
+  },
+  {
+    "relativePath": "blog/digital-marketing-strategies-pakistan-2026.html",
+    "title": "Digital Marketing Strategies in Pakistan 2026: 10 Tactics That Actually Drive Growth",
+    "description": "Discover 10 digital marketing strategies for Pakistan in 2026, with SEO, Facebook Ads, content ideas, and practical examples that win real leads.",
+    "canonical": "https://nexagrowth.xyz/blog/digital-marketing-strategies-pakistan-2026.html",
+    "hasSchema": true,
+    "wordCount": 1023,
+    "internalLinksCount": 20,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Digital Marketing Strategies in Pakistan 2026: 10 Tactics That Actually Drive Growth"
+    ]
+  },
+  {
+    "relativePath": "blog/ecommerce-marketing-pakistan.html",
+    "title": "E-commerce Marketing Pakistan: Scale Your Online Store | NexaGrowth",
+    "description": "Learn proven e-commerce marketing strategies for Pakistan. Start scaling your online store with SEO, social ads, and local retention tactics.",
+    "canonical": "https://nexagrowth.xyz/blog/ecommerce-marketing-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 1486,
+    "internalLinksCount": 19,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 9,
+    "hasCookieConsent": false,
+    "h1s": [
+      "E-commerce Marketing in Pakistan: How to Scale Your Online Store"
+    ]
+  },
+  {
+    "relativePath": "blog/email-marketing-pakistan.html",
+    "title": "Email Marketing in Pakistan: Build Your List & Convert (2026) | NexaGrowth",
+    "description": "Complete guide to email marketing in Pakistan. Learn how to build an email list, choose the right platform, write converting emails, and automate your campaigns.",
+    "canonical": "https://nexagrowth.xyz/blog/email-marketing-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 1933,
+    "internalLinksCount": 14,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 8,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Email Marketing in Pakistan: How to Build a List and Convert (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/facebook-ads-pakistan.html",
+    "title": "How to Run Facebook Ads in Pakistan: A Complete Step-by-Step Guide (2026) | NexaGrowth",
+    "description": "Learn how to run Facebook Ads in Pakistan step by step. From setting up your Business Manager to targeting Pakistani audiences and managing your ad budget effectively.",
+    "canonical": "https://nexagrowth.xyz/blog/facebook-ads-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 2654,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 11,
+    "hasCookieConsent": false,
+    "h1s": [
+      "How to Run Facebook Ads in Pakistan: A Complete Step-by-Step Guide (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/google-ads-vs-facebook-ads-pakistan.html",
+    "title": "Google Ads vs Facebook Ads in Pakistan (2026 ROI Comparison)",
+    "description": "Compare Google Ads and Facebook Ads in Pakistan. Learn which channel delivers better ROI, when to use each platform, and how to choose the right one for your business.",
+    "canonical": "https://nexagrowth.xyz/blog/google-ads-vs-facebook-ads-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 1103,
+    "internalLinksCount": 23,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 9,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Google Ads vs Facebook Ads in Pakistan (2026 ROI Comparison)"
+    ]
+  },
+  {
+    "relativePath": "blog/google-my-business-pakistan.html",
+    "title": "How to Set Up Google My Business in Pakistan (2026) | NexaGrowth",
+    "description": "Step-by-step guide to setting up and optimizing your Google My Business profile in Pakistan. Get found on Google Maps and attract local customers.",
+    "canonical": "https://nexagrowth.xyz/blog/google-my-business-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 1950,
+    "internalLinksCount": 19,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 7,
+    "hasCookieConsent": false,
+    "h1s": [
+      "How to Set Up Google My Business in Pakistan: Complete Guide (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/how-to-choose-digital-marketing-agency-pakistan-2026.html",
+    "title": "How to Choose a Digital Marketing Agency in Pakistan (2026 Guide)",
+    "description": "Learn how to choose a digital marketing agency in Pakistan, spot red flags, compare pricing, and ask the questions that protect your budget.",
+    "canonical": "https://nexagrowth.xyz/blog/how-to-choose-digital-marketing-agency-pakistan-2026.html",
+    "hasSchema": true,
+    "wordCount": 758,
+    "internalLinksCount": 20,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "How to Choose a Digital Marketing Agency in Pakistan (2026 Guide)"
+    ]
+  },
+  {
+    "relativePath": "blog/how-to-generate-leads-in-pakistan-using-digital-marketing.html",
+    "title": "How to Generate Leads in Pakistan Using Digital Marketing (2026)",
+    "description": "Learn how to generate leads in Pakistan using digital marketing. Discover practical lead generation systems with SEO, Facebook Ads, landing pages, WhatsApp, and follow-up funnels.",
+    "canonical": "https://nexagrowth.xyz/blog/how-to-generate-leads-in-pakistan-using-digital-marketing.html",
+    "hasSchema": true,
+    "wordCount": 1126,
+    "internalLinksCount": 24,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 10,
+    "hasCookieConsent": false,
+    "h1s": [
+      "How to Generate Leads in Pakistan Using Digital Marketing (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/how-to-protect-online-accounts.html",
+    "title": "Protect Your Online Accounts: 10 Security Tips (2026) | NexaGrowth",
+    "description": "Learn 10 essential tips to protect your online accounts from hackers. Covers strong passwords, 2FA, phishing scams, password managers, VPNs, and more.",
+    "canonical": "https://nexagrowth.xyz/blog/how-to-protect-online-accounts.html",
+    "hasSchema": true,
+    "wordCount": 2465,
+    "internalLinksCount": 18,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 12,
+    "hasCookieConsent": false,
+    "h1s": [
+      "How to Protect Your Online Accounts: 10 Essential Security Tips"
+    ]
+  },
+  {
+    "relativePath": "blog/how-to-start-facebook-ads-pakistan.html",
+    "title": "How to Start Facebook Ads in Pakistan (2026 Complete Guide)",
+    "description": "Complete guide to launching Facebook ads in Pakistan. Learn account setup, audience targeting, ad creation, budgeting, and optimization for Pakistani businesses.",
+    "canonical": "https://nexagrowth.xyz/blog/how-to-start-facebook-ads-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 1867,
+    "internalLinksCount": 17,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 10,
+    "hasCookieConsent": false,
+    "h1s": [
+      "How to Start Facebook Ads in Pakistan (2026 Complete Guide)"
+    ]
+  },
+  {
+    "relativePath": "blog/html-vs-wordpress.html",
+    "title": "HTML vs WordPress: Which Should You Choose for Your Website? (2026)",
+    "description": "HTML vs WordPress — compare speed, cost, flexibility, SEO, and maintenance to decide which platform is right for your website in 2026.",
+    "canonical": "https://nexagrowth.xyz/blog/html-vs-wordpress.html",
+    "hasSchema": true,
+    "wordCount": 925,
+    "internalLinksCount": 20,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "HTML vs WordPress: Which Should You Choose for Your Website?"
+    ]
+  },
+  {
+    "relativePath": "blog/index.html",
+    "title": "NexaGrowth Blog: Digital Marketing, SEO, AI Tools & Growth Strategies",
+    "description": "Expert insights on SEO, AI tools, digital marketing, cybersecurity, and growth strategies. Practical guides and actionable tips from NexaGrowth.",
+    "canonical": "https://nexagrowth.xyz/blog/",
+    "hasSchema": true,
+    "wordCount": 844,
+    "internalLinksCount": 40,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "The NexaGrowth Blog"
+    ]
+  },
+  {
+    "relativePath": "blog/instagram-growth-tips.html",
+    "title": "Instagram Growth Tips: 12 Proven Strategies That Work in 2026",
+    "description": "Grow your Instagram followers organically in 2026 with these 12 proven strategies: Reels, hashtags, content pillars, engagement tactics, and posting schedule.",
+    "canonical": "https://nexagrowth.xyz/blog/instagram-growth-tips.html",
+    "hasSchema": true,
+    "wordCount": 962,
+    "internalLinksCount": 18,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Instagram Growth Tips: 12 Proven Strategies That Work in 2026"
+    ]
+  },
+  {
+    "relativePath": "blog/instagram-marketing-guide.html",
+    "title": "Instagram Marketing Guide for Beginners: Grow Your Brand in 2026 | NexaGrowth",
+    "description": "A complete Instagram marketing guide for beginners. Learn how to set up a business profile, grow followers, create engaging content, and turn your Instagram into a sales machine in 2026.",
+    "canonical": "https://nexagrowth.xyz/blog/instagram-marketing-guide.html",
+    "hasSchema": true,
+    "wordCount": 2184,
+    "internalLinksCount": 17,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 11,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Instagram Marketing Guide for Beginners: Grow Your Brand in 2026"
+    ]
+  },
+  {
+    "relativePath": "blog/local-seo-pakistani-businesses.html",
+    "title": "Local SEO for Pakistani Businesses (Step-by-Step 2026 Guide)",
+    "description": "Complete local SEO guide for Pakistani businesses. Rank on Google in your city with Google Business Profile optimization, local citations, reviews, and proven strategies.",
+    "canonical": "https://nexagrowth.xyz/blog/local-seo-pakistani-businesses.html",
+    "hasSchema": true,
+    "wordCount": 2306,
+    "internalLinksCount": 17,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 11,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Local SEO for Pakistani Businesses (Step-by-Step 2026 Guide)"
+    ]
+  },
+  {
+    "relativePath": "blog/seo-strategies-pakistan.html",
+    "title": "Best SEO Strategies for Small Businesses in Pakistan (2026) | NexaGrowth",
+    "description": "Discover the most effective SEO strategies for small businesses in Pakistan. Learn how to rank on Google, attract organic traffic, and grow your business online without paid ads.",
+    "canonical": "https://nexagrowth.xyz/blog/seo-strategies-pakistan.html",
+    "hasSchema": true,
+    "wordCount": 2816,
+    "internalLinksCount": 24,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 12,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Best SEO Strategies for Small Businesses in Pakistan (2026)"
+    ]
+  },
+  {
+    "relativePath": "blog/seo-vs-facebook-ads.html",
+    "title": "SEO vs Facebook Ads: Which is Better for Your Business in Pakistan? | NexaGrowth",
+    "description": "A side-by-side comparison of SEO and Facebook Ads for Pakistani businesses. Learn which marketing channel provides the best ROI, speed, and long-term value for your brand.",
+    "canonical": "https://nexagrowth.xyz/blog/seo-vs-facebook-ads.html",
+    "hasSchema": true,
+    "wordCount": 1262,
+    "internalLinksCount": 17,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 9,
+    "hasCookieConsent": false,
+    "h1s": [
+      "SEO vs Facebook Ads: Which is Better for Your Business in Pakistan?"
+    ]
+  },
+  {
+    "relativePath": "blog/seo-vs-paid-ads-pakistan-2026.html",
+    "title": "SEO vs Paid Ads in Pakistan: Which Is Better in 2026?",
+    "description": "Compare SEO and paid ads in Pakistan for 2026. Learn timelines, costs, ROI, and when to use each channel for faster growth.",
+    "canonical": "https://nexagrowth.xyz/blog/seo-vs-paid-ads-pakistan-2026.html",
+    "hasSchema": true,
+    "wordCount": 746,
+    "internalLinksCount": 20,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "SEO vs Paid Ads in Pakistan: Which Is Better in 2026?"
+    ]
+  },
+  {
+    "relativePath": "blog/what-is-growth-marketing-pakistan-2026.html",
+    "title": "What Is Growth Marketing in Pakistan? 2026 Guide for Brands That Want Compounding Growth",
+    "description": "Learn what growth marketing means in Pakistan, how it differs from traditional marketing, and how brands use it to build compounding results.",
+    "canonical": "https://nexagrowth.xyz/blog/what-is-growth-marketing-pakistan-2026.html",
+    "hasSchema": true,
+    "wordCount": 855,
+    "internalLinksCount": 20,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "What Is Growth Marketing in Pakistan? 2026 Guide for Brands That Want Compounding Growth"
+    ]
+  },
+  {
+    "relativePath": "case-studies.html",
+    "title": "Case Studies — Real Results for Real Businesses | NexaGrowth",
+    "description": "See how NexaGrowth helped Pakistani businesses achieve real growth. Detailed case studies with strategies, timelines, and measurable results.",
+    "canonical": "https://nexagrowth.xyz/case-studies.html",
+    "hasSchema": true,
+    "wordCount": 716,
+    "internalLinksCount": 14,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Case Studies"
+    ]
+  },
+  {
+    "relativePath": "disclaimer.html",
+    "title": "Disclaimer — NexaGrowth",
+    "description": "NexaGrowth disclaimer — important information about our content, results, and third-party links.",
+    "canonical": "https://nexagrowth.xyz/disclaimer.html",
+    "hasSchema": false,
+    "wordCount": 557,
+    "internalLinksCount": 11,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Disclaimer"
+    ]
+  },
+  {
+    "relativePath": "faq.html",
+    "title": "FAQ — Frequently Asked Questions | NexaGrowth Digital Marketing",
+    "description": "Got questions about digital marketing in Pakistan? Find answers about our services, pricing, process, and results. NexaGrowth FAQ.",
+    "canonical": "https://nexagrowth.xyz/faq.html",
+    "hasSchema": true,
+    "wordCount": 853,
+    "internalLinksCount": 21,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Frequently Asked Questions"
+    ]
+  },
+  {
+    "relativePath": "googleac40a7a5d16706a9.html",
+    "title": "No Title",
+    "description": "No Description",
+    "canonical": "No Canonical",
+    "hasSchema": false,
+    "wordCount": 2,
+    "internalLinksCount": 0,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": []
+  },
+  {
+    "relativePath": "index.html",
+    "title": "NexaGrowth — Free AI Tools, SEO Utilities & Digital Growth Solutions",
+    "description": "NexaGrowth — Free AI tools, SEO utilities, and smart digital growth solutions. 50+ free online tools, expert blog, and premium digital marketing services. No signup required.",
+    "canonical": "https://nexagrowth.xyz/",
+    "hasSchema": true,
+    "wordCount": 2129,
+    "internalLinksCount": 42,
+    "externalLinksCount": 10,
+    "anchorLinksCount": 30,
+    "hasCookieConsent": true,
+    "h1s": [
+      "AI Tools, SEO Utilities &\r\n        Smart Digital Growth Solutions"
+    ]
+  },
+  {
+    "relativePath": "og-image-generator.html",
+    "title": "NexaGrowth OG Image Generator",
+    "description": "No Description",
+    "canonical": "No Canonical",
+    "hasSchema": false,
+    "wordCount": 12,
+    "internalLinksCount": 0,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "NexaGrowth OG Image Generator"
+    ]
+  },
+  {
+    "relativePath": "portfolio.html",
+    "title": "Portfolio — Our Work & Campaigns | NexaGrowth",
+    "description": "Browse NexaGrowth's portfolio of digital marketing campaigns, website designs, and growth projects. Real work for real brands.",
+    "canonical": "https://nexagrowth.xyz/portfolio.html",
+    "hasSchema": true,
+    "wordCount": 244,
+    "internalLinksCount": 19,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Portfolio"
+    ]
+  },
+  {
+    "relativePath": "privacy.html",
+    "title": "Privacy Policy — NexaGrowth",
+    "description": "NexaGrowth Privacy Policy — how we collect, use, and protect your personal data.",
+    "canonical": "https://nexagrowth.xyz/privacy.html",
+    "hasSchema": false,
+    "wordCount": 777,
+    "internalLinksCount": 10,
+    "externalLinksCount": 4,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Privacy Policy"
+    ]
+  },
+  {
+    "relativePath": "services.html",
+    "title": "Our Services — SEO, Paid Ads, Content Marketing & Web Dev | NexaGrowth",
+    "description": "Explore NexaGrowth's full range of digital marketing services — SEO, Facebook & Google Ads, content marketing, influencer management, and web development. Tailored for Pakistani businesses.",
+    "canonical": "https://nexagrowth.xyz/services.html",
+    "hasSchema": true,
+    "wordCount": 822,
+    "internalLinksCount": 19,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Our Services"
+    ]
+  },
+  {
+    "relativePath": "terms.html",
+    "title": "Terms of Service — NexaGrowth",
+    "description": "NexaGrowth Terms of Service — the rules and guidelines that govern use of our services.",
+    "canonical": "https://nexagrowth.xyz/terms.html",
+    "hasSchema": false,
+    "wordCount": 800,
+    "internalLinksCount": 10,
+    "externalLinksCount": 1,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Terms of Service"
+    ]
+  },
+  {
+    "relativePath": "tools/age-calculator.html",
+    "title": "Age Calculator – Calculate Your Exact Age Online | NexaGrowth",
+    "description": "Free online Age Calculator. Find your exact age in years, months, and days. Discover your zodiac sign, day of birth, total days lived, and countdown to your next birthday.",
+    "canonical": "https://nexagrowth.xyz/tools/age-calculator.html",
+    "hasSchema": true,
+    "wordCount": 515,
+    "internalLinksCount": 25,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Age Calculator"
+    ]
+  },
+  {
+    "relativePath": "tools/ai-caption-generator.html",
+    "title": "AI Caption Generator — Social Media Captions for Instagram, Twitter & More | NexaGrowth",
+    "description": "Generate engaging social media captions for Instagram, Twitter, LinkedIn & TikTok. Choose your tone and topic — get 5 unique captions with hashtag suggestions. Free, no signup.",
+    "canonical": "https://nexagrowth.xyz/tools/ai-caption-generator.html",
+    "hasSchema": true,
+    "wordCount": 379,
+    "internalLinksCount": 25,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "AI Caption Generator"
+    ]
+  },
+  {
+    "relativePath": "tools/bmi-calculator.html",
+    "title": "BMI Calculator – Check Your Body Mass Index | NexaGrowth",
+    "description": "Free online BMI Calculator. Enter your weight and height to instantly calculate your Body Mass Index with colored category display, visual gauge, and personalized health tips.",
+    "canonical": "https://nexagrowth.xyz/tools/bmi-calculator.html",
+    "hasSchema": true,
+    "wordCount": 528,
+    "internalLinksCount": 25,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "BMI Calculator"
+    ]
+  },
+  {
+    "relativePath": "tools/case-converter.html",
+    "title": "Case Converter — UPPERCASE, lowercase, Title Case &amp; More | NexaGrowth",
+    "description": "Free online case converter tool. Instantly convert text to UPPERCASE, lowercase, Title Case, Sentence case, and aLtErNaTiNg CaSe with one click.",
+    "canonical": "https://nexagrowth.xyz/tools/case-converter.html",
+    "hasSchema": true,
+    "wordCount": 412,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Case Converter"
+    ]
+  },
+  {
+    "relativePath": "tools/color-picker.html",
+    "title": "Color Picker — Get HEX, RGB & HSL Color Values | NexaGrowth",
+    "description": "Pick any color and instantly get HEX, RGB, and HSL values. View complementary colors, copy values, and track your color history. Free online color picker.",
+    "canonical": "https://nexagrowth.xyz/tools/color-picker.html",
+    "hasSchema": true,
+    "wordCount": 434,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Color Picker"
+    ]
+  },
+  {
+    "relativePath": "tools/css-gradient-generator.html",
+    "title": "CSS Gradient Generator — Create Beautiful Gradients | NexaGrowth",
+    "description": "Create stunning CSS gradients with a live visual editor. Choose colors, direction, gradient type, add color stops, and copy the generated CSS code. Free online tool.",
+    "canonical": "https://nexagrowth.xyz/tools/css-gradient-generator.html",
+    "hasSchema": true,
+    "wordCount": 431,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "CSS Gradient Generator"
+    ]
+  },
+  {
+    "relativePath": "tools/emi-calculator.html",
+    "title": "EMI Calculator – Calculate Monthly Loan EMI Online | NexaGrowth",
+    "description": "Free online EMI Calculator. Calculate your monthly EMI, total interest, and total payment for any loan. View amortization schedule and visual pie chart breakdown.",
+    "canonical": "https://nexagrowth.xyz/tools/emi-calculator.html",
+    "hasSchema": true,
+    "wordCount": 556,
+    "internalLinksCount": 25,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "EMI Calculator"
+    ]
+  },
+  {
+    "relativePath": "tools/index.html",
+    "title": "Free Online Tools — SEO, AI, Developer & Utility Tools | NexaGrowth",
+    "description": "50+ free online tools: SEO generators, AI writers, text utilities, developer tools, calculators & more. No signup required. Fast, free, and mobile-friendly.",
+    "canonical": "https://nexagrowth.xyz/tools/",
+    "hasSchema": true,
+    "wordCount": 445,
+    "internalLinksCount": 36,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Free Online Tools"
+    ]
+  },
+  {
+    "relativePath": "tools/meta-tag-generator.html",
+    "title": "Meta Tag Generator — Create SEO Meta Tags, OG &amp; Twitter Cards | NexaGrowth",
+    "description": "Free meta tag generator tool. Create complete HTML meta tags including Open Graph, Twitter Cards, and SEO tags for your website — just fill in the form and copy the code.",
+    "canonical": "https://nexagrowth.xyz/tools/meta-tag-generator.html",
+    "hasSchema": true,
+    "wordCount": 501,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Meta Tag Generator"
+    ]
+  },
+  {
+    "relativePath": "tools/password-generator.html",
+    "title": "Password Generator — Create Strong Secure Passwords | NexaGrowth",
+    "description": "Generate strong, secure passwords instantly. Customize length, character types, and view password strength. Free online password generator by NexaGrowth.",
+    "canonical": "https://nexagrowth.xyz/tools/password-generator.html",
+    "hasSchema": true,
+    "wordCount": 425,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Password Generator"
+    ]
+  },
+  {
+    "relativePath": "tools/qr-code-generator.html",
+    "title": "Free QR Code Generator — Create & Download QR Codes | NexaGrowth",
+    "description": "Generate QR codes for URLs, text, Wi-Fi, or any data. Download as PNG instantly. Free, no signup, works on mobile.",
+    "canonical": "https://nexagrowth.xyz/tools/qr-code-generator.html",
+    "hasSchema": true,
+    "wordCount": 373,
+    "internalLinksCount": 24,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Free QR Code Generator"
+    ]
+  },
+  {
+    "relativePath": "tools/slug-generator.html",
+    "title": "Free Slug Generator — Create SEO-Friendly URL Slugs | NexaGrowth",
+    "description": "Convert any text into clean, SEO-friendly URL slugs instantly. Customize separator, case, and max length. Free online slug generator tool.",
+    "canonical": "https://nexagrowth.xyz/tools/slug-generator.html",
+    "hasSchema": true,
+    "wordCount": 395,
+    "internalLinksCount": 25,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Free Slug Generator"
+    ]
+  },
+  {
+    "relativePath": "tools/word-counter.html",
+    "title": "Word Counter — Count Words, Characters &amp; Reading Time | NexaGrowth",
+    "description": "Free online word counter tool. Count words, characters (with/without spaces), sentences, paragraphs, and estimated reading time in real-time as you type.",
+    "canonical": "https://nexagrowth.xyz/tools/word-counter.html",
+    "hasSchema": true,
+    "wordCount": 427,
+    "internalLinksCount": 23,
+    "externalLinksCount": 0,
+    "anchorLinksCount": 0,
+    "hasCookieConsent": false,
+    "h1s": [
+      "Word Counter"
+    ]
+  }
+]

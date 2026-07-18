@@ -2,13 +2,23 @@
 <html lang="en" data-theme="dark">
 
 <head>
-  <!-- Google Analytics (gtag.js) - APPROVED FOR ADSENSE -->
+  <!-- Consent Mode V2 — Default Denied (GDPR Compliance) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+  <!-- Google Analytics (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-FVCXYCKEVN');
   </script>
 
@@ -1810,22 +1820,10 @@
     </svg>
   </button>
 
-  <!-- ░░ COOKIE CONSENT ░░ -->
-  <div id="cookie-consent" class="cookie-consent" aria-label="Cookie consent" role="dialog" aria-hidden="true">
-    <div class="cc-inner">
-      <div class="cc-text">
-        <strong>🍪 We respect your privacy</strong>
-        <p>This website uses cookies for essential functionality and analytics to improve your experience. By clicking "Accept All," you consent to the use of all cookies.</p>
-      </div>
-      <div class="cc-actions">
-        <button id="cc-accept" class="cc-btn cc-btn-primary">Accept All</button>
-        <button id="cc-reject" class="cc-btn cc-btn-secondary">Essential Only</button>
-        <a href="privacy.html" class="cc-link">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
+  <!-- Cookie consent banner is now dynamically injected by global.js -->
 
   <script src="script.js"></script>
+  <script src="global.js" defer></script>
 </body>
 
 </html>
